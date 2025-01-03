@@ -23,49 +23,82 @@ const FoodPurchase = () => {
     foodOrigin,
     description,
   } = foodPurchase;
+
   const [quantity, setQuantity] = useState(defaultQuantity || 1);
 
   const handleQuantityChange = (e) => {
     const inputValue = parseInt(e.target.value) || 0;
-    setQuantity(inputValue);
+    const newInt = defaultQuantity - inputValue;
+    setQuantity(newInt);
   };
+  console.log(quantity);
 
   const FoodPurchase = (e) => {
     e.preventDefault();
+
     if (quantity > defaultQuantity) {
       toast.warn(`You can buy only ${defaultQuantity}`);
       return;
     }
     if (quantity < 0) {
-      toast.warn(`You can buy only ${defaultQuantity}`);
+      toast.warn(`Quantity cannot be negative`);
       return;
     }
+
     const formData = new FormData(e.target);
     const initialData = Object.fromEntries(formData.entries());
-    const { ...newFood } = initialData;
-    console.log(newFood);
 
-    fetch("http://localhost:5000/foods/purchase", {
+    const purchasedFood = {
+      ...initialData,
+      quantity: initialData.quantity,
+      foodId: _id,
+      image: image,
+    };
+    console.log(purchasedFood);
+
+    const updatedQuantity = {
+      quantity: String(quantity),
+    };
+    console.log(updatedQuantity);
+
+    // First POST request to purchase the food
+    const purchaseRequest = fetch("http://localhost:5000/foods/purchase", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(newFood),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.insertedId) {
-          Swal.fire({
-            title: "Success!",
-            text: `${foodName} Added Successfully`,
-            icon: "success",
-            confirmButtonText: "Ok",
-          });
-          e.target.reset();
+      body: JSON.stringify(purchasedFood),
+    });
+
+    const updateRequest = fetch(`http://localhost:5000/food/${_id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedQuantity),
+    });
+
+    // Handle both requests simultaneously
+    Promise.all([purchaseRequest, updateRequest])
+      .then(async ([purchaseRes, updateRes]) => {
+        if (purchaseRes.ok && updateRes.ok) {
+          const purchaseData = await purchaseRes.json();
+          const updateData = await updateRes.json();
+
+          if (purchaseData.insertedId || updateData.modifiedCount) {
+            Swal.fire({
+              title: "Success!",
+              text: `${foodName} Purchased and Database Updated Successfully`,
+              icon: "success",
+              confirmButtonText: "Ok",
+            });
+            e.target.reset();
+          }
         }
       })
       .catch((error) => {
-        console.error("Error:", error);
+        // console.error("Error:", error);
+        // toast.error("An error occurred. Please try again later.");
       });
   };
 
@@ -103,7 +136,7 @@ const FoodPurchase = () => {
                 name="foodName"
                 defaultValue={foodName}
                 placeholder="Enter food name"
-                className="input input-bordered focus:outline-[#f55353] focus:border-[#ffffff]"
+                className="input input-bordered focus:outline-black focus:border-[#ffffff]"
                 required
               />
             </div>
@@ -169,23 +202,7 @@ const FoodPurchase = () => {
                 readOnly
                 value={moment().format("L")}
               />
- 
             </div>
-
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text font-bold">Order food Img</span>
-              </label>
-              <input
-                name="imgUrl"
-                className=" text-left pt-2 input input-bordered focus:outline-[#f55353] focus:border-[#ffffff]"
-                readOnly
-                defaultValue={image}
-              />
-            </div>
-
-          
-
             <input
               type="submit"
               value="Purchase"
@@ -199,3 +216,62 @@ const FoodPurchase = () => {
 };
 
 export default FoodPurchase;
+
+// const FoodPurchase = (e) => {
+//   e.preventDefault();
+//   if (quantity > defaultQuantity) {
+//     toast.warn(`You can buy only ${defaultQuantity}`);
+//     return;
+//   }
+//   if (quantity < 0) {
+//     toast.warn(`You can buy only ${defaultQuantity}`);
+//     return;
+//   }
+//   const formData = new FormData(e.target);
+//   const initialData = Object.fromEntries(formData.entries());
+//   const purchasedFood = {
+//     ...initialData,
+//     foodId: _id,
+//     image: image,
+//   };
+//   console.log(purchasedFood);
+//   fetch("http://localhost:5000/foods/purchase", {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify(purchasedFood),
+//   })
+//     .then((res) => res.json())
+//     .then((data) => {
+//       if (data.insertedId) {
+//         Swal.fire({
+//           title: "Success!",
+//           text: `${foodName} Purchase Successfully`,
+//           icon: "success",
+//           confirmButtonText: "Ok",
+//         });
+//         e.target.reset();
+//       }
+//     })
+//     .catch((error) => {
+//       console.error("Error:", error);
+//     });
+
+//     const updatedPriceData = {
+//       price: prices,
+//     };
+//     console.log(updatedPriceData);
+
+//   fetch(`food/${_id}`, {
+//     method: "PATCH",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify(updatedPriceData),
+//   })
+//     .then((res) => res.json())
+//     .then((data) => {
+//       console.log(data);
+//     });
+// };
