@@ -29,6 +29,7 @@ const FoodPurchase = () => {
   const handleQuantityChange = (e) => {
     const inputValue = parseInt(e.target.value) || 0;
     const newInt = defaultQuantity - inputValue;
+    //const newint2 = defaultQuantity - defaultQuantity;
     setQuantity(newInt);
   };
   console.log(quantity);
@@ -41,7 +42,7 @@ const FoodPurchase = () => {
       return;
     }
     if (quantity < 0) {
-      toast.warn(`Quantity cannot be negative`);
+      toast.warn(`You can buy only ${defaultQuantity}`);
       return;
     }
 
@@ -57,7 +58,8 @@ const FoodPurchase = () => {
     console.log(purchasedFood);
 
     const updatedQuantity = {
-      quantity: String(quantity),
+      // quantity: String(quantity),
+      quantity: String(defaultQuantity - purchasedFood.quantity),
     };
     console.log(updatedQuantity);
 
@@ -68,6 +70,14 @@ const FoodPurchase = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(purchasedFood),
+    });
+    
+    const updatePurchaseRequest = fetch(`http://localhost:5000/food/purchase/${_id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedQuantity),
     });
 
     const updateRequest = fetch(`http://localhost:5000/food/${_id}`, {
@@ -109,14 +119,24 @@ const FoodPurchase = () => {
           Add your Food here
         </h2>
       </Slide>
-      <div className="mb-5">
+      <div className="mb-5 flex items-center">
         <Link to={`/foods/details/${_id}`}>
           <button className="btn flex items-center gap-3 font-bold">
             <IoArrowBackOutline />
             Back
           </button>
         </Link>
+        <div>
+        {quantity <= 0 && (
+          <p className="text-red-500 font-bold ml-3">
+            {user?.displayName || "User"}, you cannot buy this item because it
+            is not available.
+          </p>
+        )}
+        </div>
+        
       </div>
+
       <div className="flex flex-col lg:flex-row p-6 border rounded-xl w-[22rem] lg:w-full">
         <figure>
           <img src={image} className="w-[70rem]" alt="" />
@@ -207,6 +227,7 @@ const FoodPurchase = () => {
               type="submit"
               value="Purchase"
               className="btn text-white font-bold bg-button w-full"
+              disabled={quantity <= 0}
             />
           </form>
         </div>
