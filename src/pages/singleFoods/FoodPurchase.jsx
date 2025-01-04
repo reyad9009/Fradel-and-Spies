@@ -29,8 +29,8 @@ const FoodPurchase = () => {
   const handleQuantityChange = (e) => {
     const inputValue = parseInt(e.target.value) || 0;
     const newInt = defaultQuantity - inputValue;
-    //const newint2 = defaultQuantity - defaultQuantity;
     setQuantity(newInt);
+    
   };
   console.log(quantity);
 
@@ -38,12 +38,15 @@ const FoodPurchase = () => {
     e.preventDefault();
 
     if (quantity > defaultQuantity) {
-      toast.warn(`You can buy only ${defaultQuantity}`);
+      toast.warn(`if can buy only ${defaultQuantity}`);
       return;
     }
-    if (quantity < 0) {
-      toast.warn(`You can buy only ${defaultQuantity}`);
+    else if (quantity <= 0) {
+      toast.warn(`else if can buy only ${defaultQuantity}`);
       return;
+    }
+    else{
+      toast.warn(`else can buy only ${defaultQuantity}`);
     }
 
     const formData = new FormData(e.target);
@@ -51,14 +54,13 @@ const FoodPurchase = () => {
 
     const purchasedFood = {
       ...initialData,
-      quantity: initialData.quantity,
+      quantity: parseInt(initialData.quantity), 
       foodId: _id,
       image: image,
     };
     console.log(purchasedFood);
 
     const updatedQuantity = {
-      // quantity: String(quantity),
       quantity: String(defaultQuantity - purchasedFood.quantity),
     };
     console.log(updatedQuantity);
@@ -70,14 +72,6 @@ const FoodPurchase = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(purchasedFood),
-    });
-    
-    const updatePurchaseRequest = fetch(`http://localhost:5000/food/purchase/${_id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(updatedQuantity),
     });
 
     const updateRequest = fetch(`http://localhost:5000/food/${_id}`, {
@@ -103,6 +97,9 @@ const FoodPurchase = () => {
               confirmButtonText: "Ok",
             });
             e.target.reset();
+          }
+          else if(purchaseData.quantity <= 0){
+            toast.warn(`if can buy only ${defaultQuantity}`);
           }
         }
       })
@@ -226,6 +223,7 @@ const FoodPurchase = () => {
             <input
               type="submit"
               value="Purchase"
+              
               className="btn text-white font-bold bg-button w-full"
               disabled={quantity <= 0}
             />
