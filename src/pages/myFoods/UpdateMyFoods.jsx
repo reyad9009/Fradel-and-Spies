@@ -1,55 +1,74 @@
 import React, { useContext } from "react";
 import { Slide } from "react-awesome-reveal";
+import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
-import Swal from "sweetalert2";
+import { IoArrowBackOutline } from "react-icons/io5";
 
-const AddFood = () => {
+const UpdateMyFoods = () => {
   const { user } = useContext(AuthContext);
+  const updateFood = useLoaderData();
+  const {
+    _id,
+    image,
+    foodName,
+    category,
+    quantity,
+    price,
+    email,
+    name,
+    foodOrigin,
+    description,
+  } = updateFood;
+
   const handleAddFood = (e) => {
-    e.preventDefault();
-
-    const formData = new FormData(e.target);
-    const initialData = Object.fromEntries(formData.entries());
-    const { ...newFood } = initialData;
-
-    console.log(newFood);
-
-    fetch("http://localhost:5000/food", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newFood),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.insertedId) {
-          Swal.fire({
-            title: "Success!",
-            text: `${newFood.foodName} Added Successfully`,
-            icon: "success",
-            confirmButtonText: "Ok",
-          });
-          e.target.reset();
-        }
+      e.preventDefault();
+  
+      const formData = new FormData(e.target);
+      const initialData = Object.fromEntries(formData.entries());
+      const { ...newFood } = initialData;
+  
+      console.log(newFood);
+  
+      fetch("http://localhost:5000/food", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newFood),
       })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
-  };
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.modifiedCount > 0) {
+            Swal.fire({
+              title: "Update Success!",
+              text: `${newFood.foodName} Added Successfully`,
+              icon: "success",
+              confirmButtonText: "Ok",
+            });
+          }
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    };
 
   return (
     <div className="md:w-[100%] h-auto">
       <Slide>
         <h2 className="text-3xl text-center mb-16 font-bold">
-          Add your Food here
+          Update your Food here
         </h2>
       </Slide>
+      <div className="mb-5">
+        <Link to="/my-foods">
+          <button className="btn flex items-center gap-3 font-bold">
+            <IoArrowBackOutline />
+            Back
+          </button>
+        </Link>
+      </div>
       <div className="px-12 pt-10 pb-20 rounded-xl shadow-md">
-        <form
-          onSubmit={handleAddFood}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-y-10 gap-x-10 items-end"
-        >
+        <form onSubmit={handleAddFood} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-y-10 gap-x-10 items-end">
           <div className="form-control">
             <label className="label">
               <span className="label-text font-bold">Item Name</span>
@@ -57,6 +76,7 @@ const AddFood = () => {
             <input
               type="text"
               name="foodName"
+              defaultValue={foodName}
               placeholder="Enter food name"
               className="input input-bordered focus:outline-[#f55353] focus:border-[#ffffff]"
               required
@@ -69,6 +89,7 @@ const AddFood = () => {
             <input
               type="url"
               name="image"
+              defaultValue={image}
               placeholder="Enter image URL"
               className="input input-bordered focus:outline-[#f55353] focus:border-[#ffffff]"
               required
@@ -82,6 +103,7 @@ const AddFood = () => {
             <input
               type="text"
               name="category"
+              defaultValue={category}
               placeholder="Enter category name"
               className="input input-bordered focus:outline-[#f55353] focus:border-[#ffffff]"
               required
@@ -94,6 +116,7 @@ const AddFood = () => {
             <input
               type="text"
               name="quantity"
+              defaultValue={quantity}
               placeholder="Enter Quantity"
               className="input input-bordered focus:outline-[#f55353] focus:border-[#ffffff]"
             />
@@ -105,6 +128,7 @@ const AddFood = () => {
             <input
               type="text"
               name="price"
+              defaultValue={price}
               placeholder="Enter price"
               className="input input-bordered focus:outline-[#f55353] focus:border-[#ffffff]"
               required
@@ -118,6 +142,7 @@ const AddFood = () => {
             <input
               type="text"
               name="foodOrigin"
+              defaultValue={foodOrigin}
               placeholder="Food Origin (Country)"
               className="input input-bordered focus:outline-[#f55353] focus:border-[#ffffff]"
               required
@@ -129,6 +154,7 @@ const AddFood = () => {
             </label>
             <textarea
               name="description"
+              defaultValue={description}
               placeholder="Enter description"
               className="textarea textarea-bordered focus:outline-[#f55353] focus:border-[#ffffff]"
               required
@@ -171,19 +197,4 @@ const AddFood = () => {
   );
 };
 
-export default AddFood;
-
-
-// https://i.ibb.co.com/qF4v8bm/Beef-Steak.png
-// https://i.ibb.co.com/6WMrZgz/Chicken-Biryani.png
-// https://i.ibb.co.com/X79V0HQ/Creme-Brulee.png
-// https://i.ibb.co.com/b2qsFbM/Croissant.png
-// https://i.ibb.co.com/3YVH6Rc/Falafel-Wrap.png
-// https://i.ibb.co.com/m6hqYC5/Kimchi-Fried-Rice.png
-// https://i.ibb.co.com/v3VCZHK/Margherita-Pizza.png
-// https://i.ibb.co.com/TwQrsp3/Pad-Thai.png
-// https://i.ibb.co.com/n8kmwwN/Pav-Bhaji.png
-// https://i.ibb.co.com/kcCMRdr/Sushi-Platter.png
-// https://i.ibb.co.com/3NVYV2R/Tacos-Al-Pastor.png
-// https://i.ibb.co.com/bzy4gV5/Tom-Yum-Soup.png
-
+export default UpdateMyFoods;

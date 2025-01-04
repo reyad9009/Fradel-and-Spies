@@ -32,7 +32,7 @@ const MyAddedFoodsCard = ({ myFood }) => {
               Food Origin: {foodOrigin}
             </span>
             <div className="card-actions justify-start">
-              <Link>
+              <Link to={`/my-foods/update/${_id}`}>
                 <button className="px-6 py-3 font-bold rounded-full bg-[#f55353] text-white text-base mt-2 mb-2">
                   Update
                 </button>
