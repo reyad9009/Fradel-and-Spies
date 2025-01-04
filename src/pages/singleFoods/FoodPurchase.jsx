@@ -23,6 +23,7 @@ const FoodPurchase = () => {
     foodOrigin,
     description,
   } = foodPurchase;
+  const [food, setFood] = useState("")
 
   const [quantity, setQuantity] = useState(defaultQuantity || 1);
 
@@ -94,9 +95,8 @@ const FoodPurchase = () => {
               confirmButtonText: "Ok",
             });
             e.target.reset();
-          } else if (purchaseData.quantity <= 0) {
-            toast.warn(`if can buy only ${defaultQuantity}`);
-          }
+            setFood( e.target.reset())
+          } 
         }
       })
       .catch((error) => {

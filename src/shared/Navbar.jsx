@@ -17,9 +17,6 @@ const Navbar = () => {
       <li>
         <NavLink to="/addJob">Gallery</NavLink>
       </li>
-      <li>
-        <NavLink to="/add-food">Add Food</NavLink>
-      </li>
     </>
   );
   return (
@@ -73,15 +70,32 @@ const Navbar = () => {
 
             <div className="md:pr-5 pr-4">
               {user && user?.email ? (
-                <div>
-                  <img
-                    data-tooltip-id="my-tooltip"
-                    data-tooltip-content={user?.displayName}
-                    className="lg:w-12 lg:h-12 w-10 h-[10]  border-[#f55353] border-2 rounded-full"
-                    src={user?.photoURL}
-                    alt=""
-                  />
-                  <Tooltip id="my-tooltip"></Tooltip>
+                <div className="dropdown dropdown-end">
+                  <div
+                    tabIndex={0}
+                    role="button"
+                    className="btn btn-ghost btn-circle avatar"
+                  >
+                    <div className="w-11 h-11 rounded-full">
+                      <img src={user?.photoURL} />
+                    </div>
+                  </div>
+                  <ul
+                    tabIndex={0}
+                    className="menu menu-sm dropdown-content bg-[#f55353] rounded-box z-[1] mt-3 w-52 p-3 shadow space-y-2"
+                  >
+                    <li>
+                      <NavLink to={`/my-foods`} className="text-xl">My Food</NavLink>
+                    </li>
+                    <li>
+                      <NavLink to="/add-food" className="text-xl">Add Food</NavLink>
+                    </li>
+
+                    <li>
+                      <NavLink to="/add-food" className="text-xl">My Orders</NavLink>
+                    </li>
+
+                  </ul>
                 </div>
               ) : (
                 <div className=""></div>
@@ -131,10 +145,10 @@ const Navbar = () => {
                 Logout
               </button>
             ) : (
-              <Link
-                to="/login"
-              >
-                <button className="bg-[#f55353] w-full py-2 text-sm font-semibold rounded-lg text-white">Login</button>
+              <Link to="/login">
+                <button className="bg-[#f55353] w-full py-2 text-sm font-semibold rounded-lg text-white">
+                  Login
+                </button>
               </Link>
             )}
           </div>
