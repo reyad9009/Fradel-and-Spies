@@ -8,9 +8,7 @@ import SingleFood from "../pages/singleFoods/SingleFood";
 import FoodPurchase from "../pages/singleFoods/FoodPurchase";
 import MyAddedFoods from "../pages/myFoods/MyAddedFoods";
 import UpdateMyFoods from "../pages/myFoods/UpdateMyFoods";
-import MyOrders from "../pages/myFoods/MyOrders";
-
-
+import MyOrders from "../pages/myOrders/MyOrders";
 
 const router = createBrowserRouter([
   {
@@ -20,30 +18,32 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/login",
-        element: <Login></Login>
+        element: <Login></Login>,
       },
       {
         path: "/register",
-        element: <Register></Register>
+        element: <Register></Register>,
       },
       {
         path: "/add-food",
-        element: <AddFood></AddFood>
+        element: <AddFood></AddFood>,
       },
       {
         path: "/foods",
         element: <AllFoods></AllFoods>,
-        loader: () => fetch('http://localhost:5000/foods'),
+        loader: () => fetch("http://localhost:5000/foods"),
       },
       {
         path: "/foods/details/:id",
         element: <SingleFood></SingleFood>,
-        loader: ({params}) => fetch(`http://localhost:5000/foods/details/${params.id}`),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/foods/details/${params.id}`),
       },
       {
         path: "/foods/details/purchase/:id",
         element: <FoodPurchase></FoodPurchase>,
-        loader: ({params}) => fetch(`http://localhost:5000/foods/details/purchase/${params.id}`),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/foods/details/purchase/${params.id}`),
       },
       {
         path: "/my-foods",
@@ -52,17 +52,16 @@ const router = createBrowserRouter([
       {
         path: "/my-foods/update/:id",
         element: <UpdateMyFoods></UpdateMyFoods>,
-        loader: ({params}) => fetch(`http://localhost:5000/my-foods/update/${params.id}`),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/my-foods/update/${params.id}`),
       },
       {
-        path: "/my-foods/update/:id",
+        path: "/my-orders",
         element: <MyOrders></MyOrders>,
-        loader: ({params}) => fetch(`http://localhost:5000/my-foods/update/${params.id}`),
-      }
-      
-//http://localhost:5000/foods/details/purchase/67746a62f9cd0f3b095a8d36
-    ]
+      },
+
+      //http://localhost:5000/foods/details/purchase/67746a62f9cd0f3b095a8d36
+    ],
   },
-  
 ]);
 export default router;

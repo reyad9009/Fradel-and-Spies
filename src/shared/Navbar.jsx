@@ -92,7 +92,7 @@ const Navbar = () => {
                     </li>
 
                     <li>
-                      <NavLink to="/add-food" className="text-xl">My Orders</NavLink>
+                      <NavLink to="/my-orders" className="text-xl">My Orders</NavLink>
                     </li>
 
                   </ul>
