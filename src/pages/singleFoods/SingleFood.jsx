@@ -1,4 +1,4 @@
-//import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { IoArrowBackOutline } from "react-icons/io5";
 import { Link, useLoaderData } from "react-router-dom";
 
@@ -17,33 +17,18 @@ const SingleFood = () => {
     description,
   } = singleFood;
 
-  // const [food, setFood] = useState([]);
-  // const [purchaseData, setPurchaseData] = useState([]);
+  const [purchaseData, setPurchaseData] = useState([]);
 
-  // useEffect(() => {
-  //   // Combine two API calls using Promise.all
-  //   Promise.all([
-  //     fetch(`http://localhost:5000/foods/details/${_id}`).then((res) =>
-  //       res.json()
-  //     ),
-  //     fetch(`http://localhost:5000/foods/purchase/${_id}`).then((res) =>
-  //       res.json()
-  //     ),
-  //   ])
-  //     .then(([foodDetails, purchaseInfo]) => {
-  //       setFood(foodDetails);
-  //       setPurchaseData(purchaseInfo);
-  //       console.log("Food Details:", foodDetails);
-  //       console.log("Purchase Info:", purchaseInfo);
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error fetching data:", error);
-  //     });
-  // }, [_id]);
-
+  useEffect(() => {
+    fetch(`http://localhost:5000/foods/purchase/${_id}`)
+      .then((res) => res.json())
+      .then((data) => setPurchaseData(data))
+     
+  }, [_id]); // Adding _id to the dependency array so it updates when _id changes
+  
   return (
     <div>
-      {/* <h1>{food.category}</h1> */}
+
       <div className="mb-5">
         <Link to="/foods">
           <button className="btn flex items-center gap-3 font-bold">
@@ -74,6 +59,8 @@ const SingleFood = () => {
             <span className="font-semibold text-base">
               Description: {description}
             </span>
+
+            <p className="text-lg font-bold">Total purchase: {purchaseData.quantity > 0 ? purchaseData.quantity: 0}</p>
             <div>
               <Link to={`/foods/details/purchase/${_id}`}>
                 <button className={`btn bg-[#f55353] mt-4 text-white text-lg`}>
@@ -81,7 +68,7 @@ const SingleFood = () => {
                 </button>
               </Link>
             </div>
-            {/* <p>Total purchase {purchaseData.quantity}</p> */}
+         
           </div>
         </div>
       </div>

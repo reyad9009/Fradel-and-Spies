@@ -30,7 +30,6 @@ const FoodPurchase = () => {
     const inputValue = parseInt(e.target.value) || 0;
     const newInt = defaultQuantity - inputValue;
     setQuantity(newInt);
-    
   };
   console.log(quantity);
 
@@ -41,12 +40,10 @@ const FoodPurchase = () => {
       toast.warn(`if can buy only ${defaultQuantity}`);
       return;
     }
-    else if (quantity <= 0) {
-      toast.warn(`else if can buy only ${defaultQuantity}`);
+
+    if (quantity <= 0) {
+      toast.warn("Quantity must be greater than zero.");
       return;
-    }
-    else{
-      toast.warn(`else can buy only ${defaultQuantity}`);
     }
 
     const formData = new FormData(e.target);
@@ -54,7 +51,7 @@ const FoodPurchase = () => {
 
     const purchasedFood = {
       ...initialData,
-      quantity: parseInt(initialData.quantity), 
+      quantity: parseInt(initialData.quantity),
       foodId: _id,
       image: image,
     };
@@ -97,8 +94,7 @@ const FoodPurchase = () => {
               confirmButtonText: "Ok",
             });
             e.target.reset();
-          }
-          else if(purchaseData.quantity <= 0){
+          } else if (purchaseData.quantity <= 0) {
             toast.warn(`if can buy only ${defaultQuantity}`);
           }
         }
@@ -124,14 +120,13 @@ const FoodPurchase = () => {
           </button>
         </Link>
         <div>
-        {quantity <= 0 && (
-          <p className="text-red-500 font-bold ml-3">
-            {user?.displayName || "User"}, you cannot buy this item because it
-            is not available.
-          </p>
-        )}
+          {quantity === 0 && (
+            <p className="text-red-500 font-bold ml-3">
+              {user?.displayName || "User"}, you cannot buy this item because it
+              is not available.
+            </p>
+          )}
         </div>
-        
       </div>
 
       <div className="flex flex-col lg:flex-row p-6 border rounded-xl w-[22rem] lg:w-full">
@@ -223,9 +218,8 @@ const FoodPurchase = () => {
             <input
               type="submit"
               value="Purchase"
-              
               className="btn text-white font-bold bg-button w-full"
-              disabled={quantity <= 0}
+              disabled={defaultQuantity <= 0}
             />
           </form>
         </div>
