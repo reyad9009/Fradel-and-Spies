@@ -72,7 +72,7 @@ const FoodPurchase = () => {
       body: JSON.stringify(purchasedFood),
     });
 
-    const UserPurchaseRequest = fetch("http://localhost:5000/foods/purchase", {
+    const UserPurchaseRequest = fetch("http://localhost:5000/food/Purchase/user", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -89,13 +89,14 @@ const FoodPurchase = () => {
     });
 
     // Handle both requests simultaneously
-    Promise.all([purchaseRequest, updateRequest])
-      .then(async ([purchaseRes, updateRes]) => {
-        if (purchaseRes.ok && updateRes.ok) {
+    Promise.all([purchaseRequest, updateRequest, UserPurchaseRequest])
+      .then(async ([purchaseRes, updateRes, userPurchaseReq]) => {
+        if (purchaseRes.ok && updateRes.ok && userPurchaseReq.ok) {
           const purchaseData = await purchaseRes.json();
           const updateData = await updateRes.json();
+          const UserPurchaseData = await userPurchaseReq.json();
 
-          if (purchaseData.insertedId || updateData.modifiedCount) {
+          if (purchaseData.insertedId || updateData.modifiedCount || UserPurchaseData.insertedId) {
             Swal.fire({
               title: "Success!",
               text: `${foodName} Purchased and Database Updated Successfully`,
