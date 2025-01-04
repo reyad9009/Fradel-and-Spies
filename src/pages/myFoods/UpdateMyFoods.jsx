@@ -82,7 +82,19 @@ const UpdateMyFoods = () => {
               required
             />
           </div>
-
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text font-bold">Food Image URL</span>
+            </label>
+            <input
+              type="url"
+              name="image"
+              defaultValue={image}
+              placeholder="Enter image URL"
+              className="input input-bordered focus:outline-[#f55353] focus:border-[#ffffff]"
+              required
+            />
+          </div>
 
           <div className="form-control">
             <label className="label">
