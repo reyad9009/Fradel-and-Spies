@@ -3,6 +3,7 @@ import { Slide } from "react-awesome-reveal";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import { IoArrowBackOutline } from "react-icons/io5";
+import Swal from "sweetalert2";
 
 const UpdateMyFoods = () => {
   const { user } = useContext(AuthContext);
@@ -25,23 +26,23 @@ const UpdateMyFoods = () => {
   
       const formData = new FormData(e.target);
       const initialData = Object.fromEntries(formData.entries());
-      const { ...newFood } = initialData;
+      const { ...updatedFood } = initialData;
   
-      console.log(newFood);
+      console.log(updatedFood);
   
-      fetch("http://localhost:5000/food", {
+      fetch(`http://localhost:5000/my-foods/update/${_id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(newFood),
+        body: JSON.stringify(updatedFood),
       })
         .then((res) => res.json())
         .then((data) => {
           if (data.modifiedCount > 0) {
             Swal.fire({
               title: "Update Success!",
-              text: `${newFood.foodName} Added Successfully`,
+              text: `${updatedFood.foodName} Added Successfully`,
               icon: "success",
               confirmButtonText: "Ok",
             });

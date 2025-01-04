@@ -72,6 +72,14 @@ const FoodPurchase = () => {
       body: JSON.stringify(purchasedFood),
     });
 
+    const UserPurchaseRequest = fetch("http://localhost:5000/foods/purchase", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(purchasedFood),
+    });
+
     const updateRequest = fetch(`http://localhost:5000/food/${_id}`, {
       method: "PATCH",
       headers: {
