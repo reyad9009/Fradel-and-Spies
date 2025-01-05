@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
-const MyOrdersCards = ({ myFood }) => {
+const MyOrdersCards = ({ myFoods, setMyFood, myFood }) => {
   const {
     _id,
     image,
@@ -13,8 +14,42 @@ const MyOrdersCards = ({ myFood }) => {
     name,
     foodOrigin,
     description,
-    date
-  } = myFood;
+    date,
+  } = myFoods;
+
+  const handelDeleteMyOrder = (_id) => {
+    //console.log(_id);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/my-orders/delete/${_id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            // console.log(data);
+            if (data.deletedCount > 0) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your coffee has been deleted.",
+                icon: "success",
+              });
+              const remaining = myFood.filter(
+                (equipmentCard) => equipmentCard._id !== _id
+              );
+              setMyFood(remaining);
+            }
+          });
+      }
+    });
+  };
   return (
     <div>
       <div className="flex flex-col lg:flex-row lg:justify-stretch gap-16 p-6 border rounded-xl w-[22rem] lg:w-full">
@@ -30,18 +65,14 @@ const MyOrdersCards = ({ myFood }) => {
             <span className="font-semibold text-base">
               Quantity: {quantity}
             </span>
-            <span className="font-semibold text-base">
-             Added Time: {date}
-            </span>
-            <span className="font-semibold text-base">
-              Food Owner: {name}
-            </span>
-         
-
-            
+            <span className="font-semibold text-base">Added Time: {date}</span>
+            <span className="font-semibold text-base">Food Owner: {name}</span>
             <div>
-              <Link >
-                <button className={`btn bg-[#f55353] mt-4 text-white text-lg`}>
+              <Link>
+                <button
+                  onClick={() => handelDeleteMyOrder(_id)}
+                  className={`btn bg-[#f55353] mt-4 text-white text-lg`}
+                >
                   Delete
                 </button>
               </Link>

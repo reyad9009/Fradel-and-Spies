@@ -16,8 +16,8 @@ const MyOrders = () => {
   return (
     <div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-y-10 gap-x-10 items-end">
-        {myFood.map((myFood) => (
-          <MyOrdersCards myFood={myFood} key={myFood._id}></MyOrdersCards>
+        {myFood.map((myFoods) => (
+          <MyOrdersCards setMyFood={setMyFood} myFood={myFood}  myFoods={myFoods} key={myFoods._id}></MyOrdersCards>
         ))}
       </div>
     </div>
