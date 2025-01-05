@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import AllFoodsDetails from './AllFoodsDetails';
-
+import allFoodBg from '../../assets/allFoodbg.svg';
 const AllFoods = () => {
   const allFoods = useLoaderData();
   const [searchQuery, setSearchQuery] = useState("");
@@ -12,15 +12,20 @@ const AllFoods = () => {
   );
 
   return (
-    <div className="w-[100%]">
-      <h1 className="text-center font-bold text-4xl mt-16 mb-10">Foods</h1>
-      
+    <div className="w-[100%] mt-12">
+      <div>
+        <figure className='relative flex flex-col justify-center items-center'>
+          <img src={allFoodBg} alt="" />
+          <h1 className='absolute text-6xl -mt-[24rem] font-bold'>All Foods</h1>
+        </figure>
+      </div>
+      <h1 className="text-center font-bold text-4xl mt-16 mb-10">Choice Your Foods</h1>
       {/* Search Bar */}
       <div className="mb-10 flex justify-center">
         <input
           type="text"
           placeholder="Search foods by name..."
-          className="input input-bordered w-1/2 text-lg p-4 focus:outline-[#f55353] focus:border-[#ffffff]"
+          className="input input-bordered w-1/2 text-lg p-4 focus:outline-[#f55353] focus:border-transparent"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
