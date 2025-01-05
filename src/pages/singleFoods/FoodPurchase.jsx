@@ -23,7 +23,7 @@ const FoodPurchase = () => {
     foodOrigin,
     description,
   } = foodPurchase;
-  const [food, setFood] = useState("")
+  const [food, setFood] = useState("");
 
   const [quantity, setQuantity] = useState(defaultQuantity || 1);
 
@@ -72,13 +72,16 @@ const FoodPurchase = () => {
       body: JSON.stringify(purchasedFood),
     });
 
-    const UserPurchaseRequest = fetch("http://localhost:5000/food/Purchase/user", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(purchasedFood),
-    });
+    const UserPurchaseRequest = fetch(
+      "http://localhost:5000/food/Purchase/user",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(purchasedFood),
+      }
+    );
 
     const updateRequest = fetch(`http://localhost:5000/food/${_id}`, {
       method: "PATCH",
@@ -96,7 +99,11 @@ const FoodPurchase = () => {
           const updateData = await updateRes.json();
           const UserPurchaseData = await userPurchaseReq.json();
 
-          if (purchaseData.insertedId || updateData.modifiedCount || UserPurchaseData.insertedId) {
+          if (
+            purchaseData.insertedId ||
+            updateData.modifiedCount ||
+            UserPurchaseData.insertedId
+          ) {
             Swal.fire({
               title: "Success!",
               text: `${foodName} Purchased and Database Updated Successfully`,
@@ -104,8 +111,8 @@ const FoodPurchase = () => {
               confirmButtonText: "Ok",
             });
             e.target.reset();
-            setFood( e.target.reset())
-          } 
+            setFood(e.target.reset());
+          }
         }
       })
       .catch((error) => {
@@ -133,6 +140,12 @@ const FoodPurchase = () => {
             <p className="text-red-500 font-bold ml-3">
               {user?.displayName || "User"}, you cannot buy this item because it
               is not available.
+            </p>
+          )}
+          {user?.email === email && (
+            <p className="text-red-500 font-bold ml-3">
+              {user?.displayName || "User"}, you cannot purchase your own food
+              item.
             </p>
           )}
         </div>
@@ -228,7 +241,7 @@ const FoodPurchase = () => {
               type="submit"
               value="Purchase"
               className="btn text-white font-bold bg-button w-full"
-              disabled={defaultQuantity <= 0}
+              disabled={defaultQuantity <= 0 || user?.email === email}
             />
           </form>
         </div>
