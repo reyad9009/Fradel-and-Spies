@@ -14,9 +14,7 @@ const Navbar = () => {
       <li>
         <NavLink to="/foods">All Foods</NavLink>
       </li>
-      <li>
-        <NavLink to="/addJob">Gallery</NavLink>
-      </li>
+      <li>{/* <NavLink to="/addJob">Gallery</NavLink> */}</li>
     </>
   );
   return (
@@ -24,7 +22,7 @@ const Navbar = () => {
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col">
         {/* Navbar */}
-        <div className="navbar bg-base-300 w-full">
+        <div className="navbar w-full">
           <div className="flex-none lg:hidden">
             <label
               htmlFor="my-drawer-3"
@@ -47,8 +45,8 @@ const Navbar = () => {
             </label>
           </div>
 
-          <div className=" mx-2 flex-1 text-2xl font-extrabold px-2 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
-            Study Point
+          <div className=" mx-2 flex-1 text-2xl font-extrabold px-2 bg-clip-text text-transparent bg-gradient-to-r from-black to-violet-500">
+            Fradel and Spies
           </div>
 
           <div className="hidden flex-none lg:block w-[40%]">
@@ -85,16 +83,21 @@ const Navbar = () => {
                     className="menu menu-sm dropdown-content bg-[#f55353] rounded-box z-[1] mt-3 w-52 p-3 shadow space-y-2"
                   >
                     <li>
-                      <NavLink to={`/my-foods`} className="text-xl">My Food</NavLink>
+                      <NavLink to={`/my-foods`} className="text-xl">
+                        My Food
+                      </NavLink>
                     </li>
                     <li>
-                      <NavLink to="/add-food" className="text-xl">Add Food</NavLink>
+                      <NavLink to="/add-food" className="text-xl">
+                        Add Food
+                      </NavLink>
                     </li>
 
                     <li>
-                      <NavLink to="/my-orders" className="text-xl">My Orders</NavLink>
+                      <NavLink to="/my-orders" className="text-xl">
+                        My Orders
+                      </NavLink>
                     </li>
-
                   </ul>
                 </div>
               ) : (

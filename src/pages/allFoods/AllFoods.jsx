@@ -12,11 +12,11 @@ const AllFoods = () => {
   );
 
   return (
-    <div className="w-[100%] mt-12">
+    <div className="w-[100%] mt-12 relative">
       <div>
-        <figure className='relative flex flex-col justify-center items-center'>
+        <figure className=''>
           <img src={allFoodBg} alt="" />
-          <h1 className='absolute text-6xl -mt-[24rem] font-bold'>All Foods</h1>
+          <h1 className='absolute text-6xl top-[5rem] left-[32rem] font-bold'>All Foods</h1>
         </figure>
       </div>
       <h1 className="text-center font-bold text-4xl mt-16 mb-10">Choice Your Foods</h1>

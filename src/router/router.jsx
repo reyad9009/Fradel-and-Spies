@@ -9,6 +9,7 @@ import FoodPurchase from "../pages/singleFoods/FoodPurchase";
 import MyAddedFoods from "../pages/myFoods/MyAddedFoods";
 import UpdateMyFoods from "../pages/myFoods/UpdateMyFoods";
 import MyOrders from "../pages/myOrders/MyOrders";
+import HomePage from "../pages/Home/HomePage";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,11 @@ const router = createBrowserRouter([
     element: <MainLayout />,
     errorElement: <h1>error</h1>,
     children: [
+      {
+        path: "/",
+        element: <HomePage></HomePage>,
+        loader: ()=> fetch('http://localhost:5000/home-foods')
+      },
       {
         path: "/login",
         element: <Login></Login>,

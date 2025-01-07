@@ -17,13 +17,12 @@ const SingleFood = () => {
     description,
   } = singleFood;
 
-  const [purchaseData, setPurchaseData] = useState([]);
+  const [purchaseData, setPurchaseData] = useState({ totalQuantity: 0 });
 
   useEffect(() => {
     fetch(`http://localhost:5000/foods/purchase/${_id}`)
       .then((res) => res.json())
       .then((data) => setPurchaseData(data))
-     
   }, [_id]); 
   
   return (
@@ -60,7 +59,9 @@ const SingleFood = () => {
               Description: {description}
             </span>
 
-            <p className="text-lg font-bold">Total purchase: {purchaseData.quantity > 0 ? purchaseData.quantity: 0}</p>
+            <p className="text-lg font-bold">
+              Total purchase: {purchaseData.totalQuantity > 0 ? purchaseData.totalQuantity : 0}
+            </p>
             <div>
               <Link to={`/foods/details/purchase/${_id}`}>
                 <button className={`btn bg-[#f55353] mt-4 text-white text-lg`}>

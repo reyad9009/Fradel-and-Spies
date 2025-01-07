@@ -12,7 +12,7 @@ const AddFood = () => {
     const initialData = Object.fromEntries(formData.entries());
     const { ...newFood } = initialData;
 
-    console.log(newFood);
+    //console.log(newFood);
 
     fetch("http://localhost:5000/food", {
       method: "POST",

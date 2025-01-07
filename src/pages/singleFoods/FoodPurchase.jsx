@@ -32,7 +32,7 @@ const FoodPurchase = () => {
     const newInt = defaultQuantity - inputValue;
     setQuantity(newInt);
   };
-  console.log(quantity);
+  //console.log(quantity);
 
   const FoodPurchase = (e) => {
     e.preventDefault();
@@ -55,13 +55,15 @@ const FoodPurchase = () => {
       quantity: parseInt(initialData.quantity),
       foodId: _id,
       image: image,
+      description: description,
+      foodOrigin: foodOrigin,
     };
-    console.log(purchasedFood);
+    //console.log(purchasedFood);
 
     const updatedQuantity = {
       quantity: String(defaultQuantity - purchasedFood.quantity),
     };
-    console.log(updatedQuantity);
+    //console.log(updatedQuantity);
 
     // First POST request to purchase the food
     const purchaseRequest = fetch("http://localhost:5000/foods/purchase", {
@@ -72,16 +74,16 @@ const FoodPurchase = () => {
       body: JSON.stringify(purchasedFood),
     });
 
-    const UserPurchaseRequest = fetch(
-      "http://localhost:5000/food/Purchase/user",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(purchasedFood),
-      }
-    );
+    // const UserPurchaseRequest = fetch(
+    //   "http://localhost:5000/food/Purchase/user",
+    //   {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify(purchasedFood),
+    //   }
+    // );
 
     const updateRequest = fetch(`http://localhost:5000/food/${_id}`, {
       method: "PATCH",
@@ -92,17 +94,17 @@ const FoodPurchase = () => {
     });
 
     // Handle both requests simultaneously
-    Promise.all([purchaseRequest, updateRequest, UserPurchaseRequest])
-      .then(async ([purchaseRes, updateRes, userPurchaseReq]) => {
-        if (purchaseRes.ok && updateRes.ok && userPurchaseReq.ok) {
+    Promise.all([purchaseRequest, updateRequest])
+      .then(async ([purchaseRes, updateRes]) => {
+        if (purchaseRes.ok && updateRes.ok) {
           const purchaseData = await purchaseRes.json();
           const updateData = await updateRes.json();
-          const UserPurchaseData = await userPurchaseReq.json();
+         // const UserPurchaseData = await userPurchaseReq.json();
 
           if (
             purchaseData.insertedId ||
-            updateData.modifiedCount ||
-            UserPurchaseData.insertedId
+            updateData.modifiedCount
+           // UserPurchaseData.insertedId
           ) {
             Swal.fire({
               title: "Success!",

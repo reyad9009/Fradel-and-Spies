@@ -28,7 +28,7 @@ const UpdateMyFoods = () => {
       const initialData = Object.fromEntries(formData.entries());
       const { ...updatedFood } = initialData;
   
-      console.log(updatedFood);
+      //console.log(updatedFood);
   
       fetch(`http://localhost:5000/my-foods/update/${_id}`, {
         method: "PUT",
