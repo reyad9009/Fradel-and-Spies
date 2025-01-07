@@ -2,7 +2,9 @@ import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import HomePageFoodsCards from "./HomePageFoodsCards";
 import HomePageBanner from "./HomePageBanner";
-import Chefes from "../Chefes/Chefes";
+import Chefes from "./Chefes/Chefes";
+import Mission from "./Mission.jsx/Mission";
+
 
 const HomePage = () => {
   const homeFood = useLoaderData();
@@ -10,6 +12,7 @@ const HomePage = () => {
   return (
     <div className="mt-12">
       <HomePageBanner></HomePageBanner>
+      <Mission></Mission>
       <div>
         <h1 className="text-center font-bold text-4xl mt-20">
           Toop Selling Foods
