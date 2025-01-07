@@ -25,7 +25,7 @@ const AllFoods = () => {
         <input
           type="text"
           placeholder="Search foods by name..."
-          className="input input-bordered w-1/2 text-lg p-4 focus:outline-[#f55353] focus:border-transparent"
+          className="input input-bordered w-1/2 text-lg p-4 focus:outline-[#fb5402] focus:border-transparent"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />

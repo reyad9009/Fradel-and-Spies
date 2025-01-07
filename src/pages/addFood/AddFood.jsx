@@ -58,7 +58,7 @@ const AddFood = () => {
               type="text"
               name="foodName"
               placeholder="Enter food name"
-              className="input input-bordered focus:outline-[#f55353] focus:border-[#ffffff]"
+              className="input input-bordered focus:outline-[#fb5402] focus:border-[#ffffff]"
               required
             />
           </div>
@@ -70,7 +70,7 @@ const AddFood = () => {
               type="url"
               name="image"
               placeholder="Enter image URL"
-              className="input input-bordered focus:outline-[#f55353] focus:border-[#ffffff]"
+              className="input input-bordered focus:outline-[#fb5402] focus:border-[#ffffff]"
               required
             />
           </div>
@@ -83,7 +83,7 @@ const AddFood = () => {
               type="text"
               name="category"
               placeholder="Enter category name"
-              className="input input-bordered focus:outline-[#f55353] focus:border-[#ffffff]"
+              className="input input-bordered focus:outline-[#fb5402] focus:border-[#ffffff]"
               required
             />
           </div>
@@ -95,7 +95,7 @@ const AddFood = () => {
               type="text"
               name="quantity"
               placeholder="Enter Quantity"
-              className="input input-bordered focus:outline-[#f55353] focus:border-[#ffffff]"
+              className="input input-bordered focus:outline-[#fb5402] focus:border-[#ffffff]"
             />
           </div>
           <div className="form-control">
@@ -106,7 +106,7 @@ const AddFood = () => {
               type="text"
               name="price"
               placeholder="Enter price"
-              className="input input-bordered focus:outline-[#f55353] focus:border-[#ffffff]"
+              className="input input-bordered focus:outline-[#fb5402] focus:border-[#ffffff]"
               required
             />
           </div>
@@ -119,7 +119,7 @@ const AddFood = () => {
               type="text"
               name="foodOrigin"
               placeholder="Food Origin (Country)"
-              className="input input-bordered focus:outline-[#f55353] focus:border-[#ffffff]"
+              className="input input-bordered focus:outline-[#fb5402] focus:border-[#ffffff]"
               required
             />
           </div>
@@ -130,7 +130,7 @@ const AddFood = () => {
             <textarea
               name="description"
               placeholder="Enter description"
-              className="textarea textarea-bordered focus:outline-[#f55353] focus:border-[#ffffff]"
+              className="textarea textarea-bordered focus:outline-[#fb5402] focus:border-[#ffffff]"
               required
             />
           </div>
@@ -141,7 +141,7 @@ const AddFood = () => {
             <input
               type="email"
               name="email"
-              className="input input-bordered focus:outline-[#f55353] focus:border-[#ffffff]"
+              className="input input-bordered focus:outline-[#fb5402] focus:border-[#ffffff]"
               readOnly
               defaultValue={user?.email}
             />
@@ -154,7 +154,7 @@ const AddFood = () => {
             <input
               type="text"
               name="name"
-              className="input input-bordered focus:outline-[#f55353] focus:border-[#ffffff]"
+              className="input input-bordered focus:outline-[#fb5402] focus:border-[#ffffff]"
               readOnly
               defaultValue={user?.displayName}
             />

@@ -79,7 +79,7 @@ const UpdateMyFoods = () => {
               name="foodName"
               defaultValue={foodName}
               placeholder="Enter food name"
-              className="input input-bordered focus:outline-[#f55353] focus:border-[#ffffff]"
+              className="input input-bordered focus:outline-[#fb5402] focus:border-[#ffffff]"
               required
             />
           </div>
@@ -92,7 +92,7 @@ const UpdateMyFoods = () => {
               name="image"
               defaultValue={image}
               placeholder="Enter image URL"
-              className="input input-bordered focus:outline-[#f55353] focus:border-[#ffffff]"
+              className="input input-bordered focus:outline-[#fb5402] focus:border-[#ffffff]"
               required
             />
           </div>
@@ -106,7 +106,7 @@ const UpdateMyFoods = () => {
               name="category"
               defaultValue={category}
               placeholder="Enter category name"
-              className="input input-bordered focus:outline-[#f55353] focus:border-[#ffffff]"
+              className="input input-bordered focus:outline-[#fb5402] focus:border-[#ffffff]"
               required
             />
           </div>
@@ -119,7 +119,7 @@ const UpdateMyFoods = () => {
               name="quantity"
               defaultValue={quantity}
               placeholder="Enter Quantity"
-              className="input input-bordered focus:outline-[#f55353] focus:border-[#ffffff]"
+              className="input input-bordered focus:outline-[#fb5402] focus:border-[#ffffff]"
             />
           </div>
           <div className="form-control">
@@ -131,7 +131,7 @@ const UpdateMyFoods = () => {
               name="price"
               defaultValue={price}
               placeholder="Enter price"
-              className="input input-bordered focus:outline-[#f55353] focus:border-[#ffffff]"
+              className="input input-bordered focus:outline-[#fb5402] focus:border-[#ffffff]"
               required
             />
           </div>
@@ -145,7 +145,7 @@ const UpdateMyFoods = () => {
               name="foodOrigin"
               defaultValue={foodOrigin}
               placeholder="Food Origin (Country)"
-              className="input input-bordered focus:outline-[#f55353] focus:border-[#ffffff]"
+              className="input input-bordered focus:outline-[#fb5402] focus:border-[#ffffff]"
               required
             />
           </div>
@@ -157,7 +157,7 @@ const UpdateMyFoods = () => {
               name="description"
               defaultValue={description}
               placeholder="Enter description"
-              className="textarea textarea-bordered focus:outline-[#f55353] focus:border-[#ffffff]"
+              className="textarea textarea-bordered focus:outline-[#fb5402] focus:border-[#ffffff]"
               required
             />
           </div>
@@ -168,7 +168,7 @@ const UpdateMyFoods = () => {
             <input
               type="email"
               name="email"
-              className="input input-bordered focus:outline-[#f55353] focus:border-[#ffffff]"
+              className="input input-bordered focus:outline-[#fb5402] focus:border-[#ffffff]"
               readOnly
               defaultValue={user?.email}
             />
@@ -181,7 +181,7 @@ const UpdateMyFoods = () => {
             <input
               type="text"
               name="name"
-              className="input input-bordered focus:outline-[#f55353] focus:border-[#ffffff]"
+              className="input input-bordered focus:outline-[#fb5402] focus:border-[#ffffff]"
               readOnly
               defaultValue={user?.displayName}
             />

@@ -3,16 +3,35 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { Tooltip } from "react-tooltip";
 import Theme from "./Theme";
+import logo from '../assets/logo.svg';
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const links = (
     <>
       <li>
-        <NavLink to="/">Home</NavLink>
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            isActive
+              ? "text-primaryColor font-bold text-lg"
+              : "font-bold text-lg"
+          }
+        >
+          Home
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/foods">All Foods</NavLink>
+        <NavLink
+          to="/foods"
+          className={({ isActive }) =>
+            isActive
+              ? "text-primaryColor font-bold text-lg"
+              : "font-bold text-lg"
+          }
+        >
+          All Foods
+        </NavLink>
       </li>
       <li>{/* <NavLink to="/addJob">Gallery</NavLink> */}</li>
     </>
@@ -45,12 +64,13 @@ const Navbar = () => {
             </label>
           </div>
 
-          <div className=" mx-2 flex-1 text-2xl font-extrabold px-2 bg-clip-text text-transparent bg-gradient-to-r from-black to-violet-500">
-            Fradel and Spies
+          <div className="flex-1 ">
+           <img className="w-[70px] " src={logo} alt="" />
+            <p className="font-bold text-3xl ml-3"> Fradel and Spies</p>
           </div>
 
           <div className="hidden flex-none lg:block w-[40%]">
-            <ul className="menu menu-horizontal">
+            <ul className="flex flex-row gap-10">
               {/* Navbar menu content here */}
               {links}
             </ul>

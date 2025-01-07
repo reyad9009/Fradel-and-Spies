@@ -15,7 +15,7 @@ const MyOrders = () => {
   }, [user?.email]); // Re-fetch when userEmail changes
   return (
     <div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-y-10 gap-x-10 items-end">
+      <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-y-10 gap-x-10 items-end">
         {myFood.map((myFoods) => (
           <MyOrdersCards setMyFood={setMyFood} myFood={myFood}  myFoods={myFoods} key={myFoods._id}></MyOrdersCards>
         ))}

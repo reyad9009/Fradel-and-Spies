@@ -6,6 +6,7 @@ import { IoArrowBackOutline } from "react-icons/io5";
 import moment from "moment";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
+import { AiFillLayout } from "react-icons/ai";
 
 const FoodPurchase = () => {
   const foodPurchase = useLoaderData();
@@ -25,24 +26,30 @@ const FoodPurchase = () => {
   } = foodPurchase;
   const [food, setFood] = useState("");
 
-  const [quantity, setQuantity] = useState(defaultQuantity || 1);
+  const [quantity, setQuantity] = useState(defaultQuantity || 0);
 
   const handleQuantityChange = (e) => {
-    const inputValue = parseInt(e.target.value) || 0;
+    const inputValue = parseInt(e.target.value) || 1;
     const newInt = defaultQuantity - inputValue;
     setQuantity(newInt);
+    
   };
-  //console.log(quantity);
+  console.log(quantity);
 
   const FoodPurchase = (e) => {
     e.preventDefault();
 
     if (quantity > defaultQuantity) {
-      toast.warn(`if can buy only ${defaultQuantity}`);
+      toast.warn(`You can buy only ${defaultQuantity}`);
       return;
     }
 
     if (quantity <= 0) {
+      toast.warn("Quantity must be greater than zero.");
+      return;
+    }
+
+    if (quantity === 0) {
       toast.warn("Quantity must be greater than zero.");
       return;
     }
@@ -186,7 +193,7 @@ const FoodPurchase = () => {
                 name="price"
                 defaultValue={price}
                 placeholder="Enter price"
-                className="input input-bordered focus:outline-[#f55353] focus:border-[#ffffff]"
+                className="input input-bordered focus:outline-[#fb5402] focus:border-[#ffffff]"
                 required
               />
             </div>
@@ -200,7 +207,7 @@ const FoodPurchase = () => {
                 onChange={handleQuantityChange}
                 defaultValue={quantity}
                 required
-                className="input input-bordered focus:outline-[#f55353] focus:border-[#ffffff]"
+                className="input input-bordered focus:outline-[#fb5402] focus:border-[#ffffff]"
               />
             </div>
 
@@ -211,7 +218,7 @@ const FoodPurchase = () => {
               <input
                 type="text"
                 name="name"
-                className="input input-bordered focus:outline-[#f55353] focus:border-[#ffffff]"
+                className="input input-bordered focus:outline-[#fb5402] focus:border-[#ffffff]"
                 readOnly
                 defaultValue={user?.displayName}
               />
@@ -223,7 +230,7 @@ const FoodPurchase = () => {
               <input
                 type="email"
                 name="email"
-                className="input input-bordered focus:outline-[#f55353] focus:border-[#ffffff]"
+                className="input input-bordered focus:outline-[#fb5402] focus:border-[#ffffff]"
                 readOnly
                 defaultValue={user?.email}
               />
@@ -234,7 +241,7 @@ const FoodPurchase = () => {
               </label>
               <input
                 name="date"
-                className=" text-left pt-2 input input-bordered focus:outline-[#f55353] focus:border-[#ffffff]"
+                className=" text-left pt-2 input input-bordered focus:outline-[#fb5402] focus:border-[#ffffff]"
                 readOnly
                 value={moment().format("L")}
               />
@@ -242,7 +249,7 @@ const FoodPurchase = () => {
             <input
               type="submit"
               value="Purchase"
-              className="btn text-white font-bold bg-button w-full"
+              className="btn text-white font-bold bg-primaryColor w-full"
               disabled={defaultQuantity <= 0 || user?.email === email}
             />
           </form>

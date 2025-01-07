@@ -42,11 +42,7 @@ const HomePageFoodsCards = ({ foods }) => {
           </div>
         </div>
       </div>
-      <div>
-        <Link  to="/foods">
-          <button className="px-6 py-3 font-bold rounded-full bg-primaryColor text-white text-base mt-2 mb-2">See All Foods</button>
-        </Link>
-      </div>
+     
     </div>
   );
 };
