@@ -33,7 +33,7 @@ const AllFoodsDetails = ({ allFoods }) => {
             </span>
             <div className="card-actions justify-start">
               <Link to={`/foods/details/${_id}`}>
-                <button className="px-6 py-3 font-bold rounded-full bg-[#f55353] text-white text-base mt-2 mb-2">
+                <button className="px-6 py-3 font-bold rounded-full bg-primaryColor text-white text-base mt-2 mb-2">
                   View Details
                 </button>
               </Link>

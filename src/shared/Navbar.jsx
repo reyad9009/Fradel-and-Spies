@@ -80,7 +80,7 @@ const Navbar = () => {
                   </div>
                   <ul
                     tabIndex={0}
-                    className="menu menu-sm dropdown-content bg-[#f55353] rounded-box z-[1] mt-3 w-52 p-3 shadow space-y-2"
+                    className="menu menu-sm dropdown-content bg-primaryColor rounded-box z-[1] mt-3 w-52 p-3 shadow space-y-2"
                   >
                     <li>
                       <NavLink to={`/my-foods`} className="text-xl">
@@ -109,14 +109,14 @@ const Navbar = () => {
               {user && user?.email ? (
                 <button
                   onClick={logOut}
-                  className="bg-[#f55353] lg:px-8 lg:py-3 px-2 py-2 lg:text-xl text-sm font-semibold rounded-full text-white"
+                  className="bg-primaryColor lg:px-8 lg:py-3 px-2 py-2 lg:text-xl text-sm font-semibold rounded-full text-white"
                 >
                   Logout
                 </button>
               ) : (
                 <Link
                   to="/login"
-                  className="bg-[#f55353] lg:px-8 lg:py-3 px-2 py-2 lg:text-xl font-semibold rounded-full text-white"
+                  className="bg-primaryColor lg:px-8 lg:py-3 px-2 py-2 lg:text-xl font-semibold rounded-full text-white"
                 >
                   Login
                 </Link>
@@ -143,13 +143,13 @@ const Navbar = () => {
             {user && user?.email ? (
               <button
                 onClick={logOut}
-                className="bg-[#f55353] py-2 w-full text-sm font-semibold rounded-lg text-white"
+                className="bg-primaryColor py-2 w-full text-sm font-semibold rounded-lg text-white"
               >
                 Logout
               </button>
             ) : (
               <Link to="/login">
-                <button className="bg-[#f55353] w-full py-2 text-sm font-semibold rounded-lg text-white">
+                <button className="bg-primaryColor w-full py-2 text-sm font-semibold rounded-lg text-white">
                   Login
                 </button>
               </Link>

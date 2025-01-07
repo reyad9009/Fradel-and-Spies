@@ -97,7 +97,7 @@ const Login = () => {
             </label>
           </div>
           <div className="form-control">
-            <button className="btn bg-[#f55353] text-white font-bold text-lg">Login</button>
+            <button className="btn bg-primaryColor text-white font-bold text-lg">Login</button>
           </div>
           <div className="divider">OR</div>
         </form>

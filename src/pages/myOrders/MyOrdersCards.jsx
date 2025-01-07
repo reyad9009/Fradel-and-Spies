@@ -71,7 +71,7 @@ const MyOrdersCards = ({ myFoods, setMyFood, myFood }) => {
               <Link>
                 <button
                   onClick={() => handelDeleteMyOrder(_id)}
-                  className={`btn bg-[#f55353] mt-4 text-white text-lg`}
+                  className={`btn bg-primaryColor mt-4 text-white text-lg`}
                 >
                   Delete
                 </button>

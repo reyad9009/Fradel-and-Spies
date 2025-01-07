@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        button: "#000000"
+        primaryColor: "#fb5402"
       }
     },
   },

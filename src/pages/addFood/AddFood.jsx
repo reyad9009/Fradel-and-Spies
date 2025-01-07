@@ -163,7 +163,7 @@ const AddFood = () => {
           <input
             type="submit"
             value="Add Item"
-            className="btn font-bold bg-[#f55353] w-full"
+            className="btn font-bold bg-primaryColor w-full"
           />
         </form>
       </div>

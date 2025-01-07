@@ -140,7 +140,7 @@ const Register = () => {
 
           <div className="flex w-full flex-col mt-5">
             <div className="card bg-base-300 rounded-box grid place-items-center">
-              <button className="btn w-full bg-[#f55353] text-white font-bold text-xl">
+              <button className="btn w-full bg-primaryColor text-white font-bold text-xl">
                 Register
               </button>
             </div>
