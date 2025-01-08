@@ -3,7 +3,7 @@ import shef1 from "../../../assets/shef1.svg";
 import shef2 from "../../../assets/shef2.svg";
 import shef3 from "../../../assets/shef3.svg";
 
-const Chefes = () => {
+const Chefs = () => {
   return (
     <div className="flex flex-col justify-center items-center my-28">
       <h1 className="font-bold text-4xl mb-10">Meet Our Chefs</h1>
@@ -37,4 +37,4 @@ const Chefes = () => {
   );
 };
 
-export default Chefes;
+export default Chefs;

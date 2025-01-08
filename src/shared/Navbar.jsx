@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { Tooltip } from "react-tooltip";
 import Theme from "./Theme";
-import logo from '../assets/logo.svg';
+import logo from "../assets/logo.svg";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -33,7 +33,19 @@ const Navbar = () => {
           All Foods
         </NavLink>
       </li>
-      <li>{/* <NavLink to="/addJob">Gallery</NavLink> */}</li>
+      <li>
+        <NavLink
+          to="/gallery"
+          className={({ isActive }) =>
+            isActive
+              ? "text-primaryColor font-bold text-lg"
+              : "font-bold text-lg"
+          }
+        >
+          Gallery
+        </NavLink>
+      </li>
+     
     </>
   );
   return (
@@ -65,7 +77,7 @@ const Navbar = () => {
           </div>
 
           <div className="flex-1 ">
-           <img className="w-[70px] " src={logo} alt="" />
+            <img className="w-[70px] " src={logo} alt="" />
             <p className="font-bold text-3xl ml-3"> Fradel and Spies</p>
           </div>
 

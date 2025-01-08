@@ -2,9 +2,8 @@ import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import HomePageFoodsCards from "./HomePageFoodsCards";
 import HomePageBanner from "./HomePageBanner";
-import Chefes from "./Chefes/Chefes";
 import Mission from "./Mission.jsx/Mission";
-
+import Chefs from "./Chefs/Chefs";
 
 const HomePage = () => {
   const homeFood = useLoaderData();
@@ -27,12 +26,14 @@ const HomePage = () => {
         ))}
       </div>
       <div className="flex justify-end mt-8">
-        <Link  to="/foods">
-          <button className="px-6 py-3 font-bold rounded-lg bg-primaryColor text-white text-base mt-2 mb-2">See All Foods</button>
+        <Link to="/foods">
+          <button className="px-6 py-3 font-bold rounded-lg bg-primaryColor text-white text-base mt-2 mb-2">
+            See All Foods
+          </button>
         </Link>
       </div>
       <div>
-        <Chefes></Chefes>
+        <Chefs></Chefs>
       </div>
     </div>
   );
