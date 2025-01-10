@@ -10,9 +10,9 @@ const MyAddedFoods = () => {
     // Fetch data for the logged-in user's email
     fetch(`http://localhost:5000/my-foods/${user?.email}`)
       .then((res) => res.json())
-      .then((data) => setMyFood(data)) 
-      .catch((error) => console.error("Error fetching equipment:", error));
-  }, [user?.email]); 
+      .then((data) => setMyFood(data))
+      
+  }, [user?.email]);
   return (
     <div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-10 gap-x-10 items-end">

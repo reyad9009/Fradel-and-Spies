@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
+import Loading from "../loading/Loading";
 
 const Gallery = () => {
   const [open, setOpen] = useState(false);
@@ -27,8 +28,8 @@ const Gallery = () => {
   };
 
   return (
-    <div className="mt-10">
-      <h2 className="text-5xl font-bold text-center mb-16">Food Gallery</h2>
+    <div className="mt-10 flex flex-col justify-center items-center">
+      <h2 className="lg:text-5xl text-3xl font-bold text-center mb-16">Food Gallery</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-10 gap-x-6 items-end">
         {images.map((image, index) => (
           <div
@@ -39,7 +40,7 @@ const Gallery = () => {
             <img
               src={image.src}
               alt={image.alt}
-              className="object-cover w-full hover:scale-105 transition-transform duration-300"
+              className="object-cover lg:w-full w-[22rem] hover:scale-105 transition-transform duration-300"
             />
           </div>
         ))}

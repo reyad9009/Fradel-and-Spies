@@ -77,8 +77,8 @@ const Navbar = () => {
           </div>
 
           <div className="flex-1 ">
-            <img className="w-[70px] " src={logo} alt="" />
-            <p className="font-bold text-3xl ml-3"> Fradel and Spies</p>
+            <img className="lg:w-[70px] w-[50px] " src={logo} alt="" />
+            <p className="font-bold lg:text-3xl text-xl ml-3"> Fradel and Spies</p>
           </div>
 
           <div className="hidden flex-none lg:block w-[40%]">
@@ -158,7 +158,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      <div className="drawer-side z-20">
+      <div className="drawer-side z-50">
         <label
           htmlFor="my-drawer-3"
           aria-label="close sidebar"

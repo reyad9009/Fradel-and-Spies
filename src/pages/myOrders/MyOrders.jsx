@@ -11,7 +11,7 @@ const MyOrders = () => {
     fetch(`http://localhost:5000/my-orders/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setMyFood(data)) // Set data to state
-      .catch((error) => console.error("Error fetching equipment:", error));
+
   }, [user?.email]); // Re-fetch when userEmail changes
   return (
     <div>

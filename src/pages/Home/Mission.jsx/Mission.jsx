@@ -15,8 +15,8 @@ const Mission = () => {
         create memorable dining experiences while supporting local communities
         and delivering the highest quality ingredients.
       </p>
-      <div className="flex justify-between items-center gap-8 w-[100%]">
-        <div className="grid grid-cols-2 gap-10">
+      <div className="flex lg:flex-row flex-col justify-between items-center gap-8 w-[100%]">
+        <div className="grid grid-cols-2 lg:gap-10 gap-5">
           <div className="flex flex-col items-center">
             <img src={img_1} alt="" className="" />
             <p className="text-lg font-bold mt-2 text-center">Fresh Ingredients</p>

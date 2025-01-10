@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const HomePageBanner = () => {
   return (
     <div>
-      <div className="card bg-base-100 image-full -z-50">
+      <div className="card bg-base-100 image-full">
         <figure>
           <img src={homePageBg} className="" alt="Shoes" />
         </figure>
@@ -18,7 +18,7 @@ const HomePageBanner = () => {
             celebration of taste, quality, and excellence, made to satisfy your
             cravings and leave you coming back for more!
           </span>
-          <div className="">
+          <div className=" z-auto">
             <Link to="/foods">
               <button className="px-6 py-3 font-bold rounded-full bg-primaryColor text-white text-base">
                 See All Foods

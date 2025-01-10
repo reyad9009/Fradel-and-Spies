@@ -1,4 +1,3 @@
-
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import { toast } from "react-toastify";
@@ -7,6 +6,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
+
 
 const Login = () => {
   const { userLogin, setUser, signInWithGoogle } = useContext(AuthContext);
@@ -22,37 +22,80 @@ const Login = () => {
     const password = form.password.value;
     //console.log({ email, password });
 
+    // userLogin(email, password)
+    //   .then((result) => {
+    //     const user = { email: result.user.email }; // Use the email from the result object
+    //     axios
+    //       .post("http://localhost:5000/jwt", user, { withCredentials: true })
+    //       .then((res) => {
+    //         console.log(res.data);
+
+    //         setUser(user);
+    //         e.target.reset();
+    //         toast.success("Login successful");
+    //         navigate(location?.state ? location.state : "/");
+    //       });
+    //   })
+    //   .catch((err) => {
+    //     setError({ ...error, login: err.code });
+    //     toast.warn("User not found");
+    //   });
     userLogin(email, password)
       .then((result) => {
         const user = result.user;
         setUser(user);
         e.target.reset();
-        toast.success('Login successful')
+        toast.success("Login successful");
         navigate(location?.state ? location.state : "/");
-        
       })
       .catch((err) => {
-        setError({ ...error, login:err.code });
-        toast.warn('User not found')
+        setError({ ...error, login: err.code });
+        toast.warn("User not found");
       });
   };
   // for google signIn
+  // const handleGoogleSignIn = () => {
+  //   signInWithGoogle()
+  //     .then((result) => {
+  //       const user = { email: result.user.email }; // Use the email from the result object
+  //       axios
+  //         .post("http://localhost:5000/jwt", user, { withCredentials: true })
+  //         .then((res) => {
+  //          console.log(res.data);
+  //           navigate("/"); // Navigate after successful post
+  //           toast.success("Login successful");
+  //         })
+  //         .catch((error) => {
+  //           console.error("Error posting to server:", error.message);
+  //           toast.error("Login failed, please try again.");
+  //         });
+  //     })
+  //     .catch((error) => {
+  //      // console.error("Sign-in error:", error.message);
+  //       toast.error("Sign-in failed, please try again.");
+  //     });
+  // };
   const handleGoogleSignIn = () => {
     signInWithGoogle()
       .then((result) => {
-       // console.log(result.user);
+        // console.log(result.user);
         navigate("/");
-        toast.success('Login successful')
+        toast.success("Login successful");
       })
       .catch((error) => {
-       // console.log("Error", error.message);
+        // console.log("Error", error.message);
       });
   };
+
   return (
     <div className="flex justify-center">
-      <Helmet><title>Career Kindle | Login</title></Helmet>
+      <Helmet>
+        <title>Career Kindle | Login</title>
+      </Helmet>
       <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-        <h2 className="text-3xl font-extrabold text-center mb-10">Login your account</h2>
+        <h2 className="text-3xl font-extrabold text-center mb-10">
+          Login your account
+        </h2>
         <form onSubmit={handleSubmit} className="px-10">
           <div className="form-control">
             <label className="label">
@@ -78,15 +121,15 @@ const Login = () => {
               required
             />
             <button
-                onClick={() => setShowPassword(!showPassword)}
-                className=" absolute ml-[16rem] mt-[3.2rem] p-2 bg-white"
-              >
-                {showPassword ? (
-                  <FaEyeSlash className="text-lg"></FaEyeSlash>
-                ) : (
-                  <FaEye className="text-lg"></FaEye>
-                )}
-              </button>
+              onClick={() => setShowPassword(!showPassword)}
+              className=" absolute ml-[16rem] mt-[3.2rem] p-2 bg-white"
+            >
+              {showPassword ? (
+                <FaEyeSlash className="text-lg"></FaEyeSlash>
+              ) : (
+                <FaEye className="text-lg"></FaEye>
+              )}
+            </button>
 
             {/* {error.login && <label className="label">{error.login}</label>} */}
 
@@ -97,7 +140,9 @@ const Login = () => {
             </label>
           </div>
           <div className="form-control">
-            <button className="btn bg-primaryColor text-white font-bold text-lg">Login</button>
+            <button className="btn bg-primaryColor text-white font-bold text-lg">
+              Login
+            </button>
           </div>
           <div className="divider">OR</div>
         </form>

@@ -12,20 +12,20 @@ const AllFoods = () => {
   );
 
   return (
-    <div className="w-[100%] mt-12 relative">
-      <div>
-        <figure className=''>
+    <div className="w-[100%] mt-12 flex flex-col justify-center items-center">
+      <div className='relative'>
+        <figure className='flex justify-center items-center'>
           <img src={allFoodBg} alt="" />
-          <h1 className='absolute text-6xl top-[5rem] left-[32rem] font-bold'>All Foods</h1>
+          <h1 className='absolute lg:text-6xl lg:top-[5rem] lg:left-[32rem] font-bold top-5'>All Foods</h1>
         </figure>
       </div>
       <h1 className="text-center font-bold text-4xl mt-16 mb-10">Choice Your Foods</h1>
       {/* Search Bar */}
-      <div className="mb-10 flex justify-center">
+      <div className="mb-10 flex justify-center w-[100%]">
         <input
           type="text"
           placeholder="Search foods by name..."
-          className="input input-bordered w-1/2 text-lg p-4 focus:outline-[#fb5402] focus:border-transparent"
+          className="input input-bordered lg:w-1/2 text-lg p-4 focus:outline-[#fb5402] focus:border-transparent"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
