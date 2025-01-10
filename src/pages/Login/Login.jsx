@@ -7,7 +7,6 @@ import { Helmet } from "react-helmet-async";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 
-
 const Login = () => {
   const { userLogin, setUser, signInWithGoogle } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
@@ -22,24 +21,6 @@ const Login = () => {
     const password = form.password.value;
     //console.log({ email, password });
 
-    // userLogin(email, password)
-    //   .then((result) => {
-    //     const user = { email: result.user.email }; // Use the email from the result object
-    //     axios
-    //       .post("http://localhost:5000/jwt", user, { withCredentials: true })
-    //       .then((res) => {
-    //         console.log(res.data);
-
-    //         setUser(user);
-    //         e.target.reset();
-    //         toast.success("Login successful");
-    //         navigate(location?.state ? location.state : "/");
-    //       });
-    //   })
-    //   .catch((err) => {
-    //     setError({ ...error, login: err.code });
-    //     toast.warn("User not found");
-    //   });
     userLogin(email, password)
       .then((result) => {
         const user = result.user;
@@ -53,33 +34,11 @@ const Login = () => {
         toast.warn("User not found");
       });
   };
-  // for google signIn
-  // const handleGoogleSignIn = () => {
-  //   signInWithGoogle()
-  //     .then((result) => {
-  //       const user = { email: result.user.email }; // Use the email from the result object
-  //       axios
-  //         .post("http://localhost:5000/jwt", user, { withCredentials: true })
-  //         .then((res) => {
-  //          console.log(res.data);
-  //           navigate("/"); // Navigate after successful post
-  //           toast.success("Login successful");
-  //         })
-  //         .catch((error) => {
-  //           console.error("Error posting to server:", error.message);
-  //           toast.error("Login failed, please try again.");
-  //         });
-  //     })
-  //     .catch((error) => {
-  //      // console.error("Sign-in error:", error.message);
-  //       toast.error("Sign-in failed, please try again.");
-  //     });
-  // };
   const handleGoogleSignIn = () => {
     signInWithGoogle()
       .then((result) => {
         // console.log(result.user);
-        navigate("/");
+        navigate(location?.state ? location.state : "/");
         toast.success("Login successful");
       })
       .catch((error) => {

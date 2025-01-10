@@ -12,6 +12,7 @@ import MyOrders from "../pages/myOrders/MyOrders";
 import HomePage from "../pages/Home/HomePage";
 import Gallery from "../pages/gallery/Gallery";
 import Error from "../pages/error/Error";
+import PrivateRout from "./PrivateRout";
 
 const router = createBrowserRouter([
   {
@@ -22,7 +23,8 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <HomePage></HomePage>,
-        loader: ()=> fetch('http://localhost:5000/home-foods')
+        loader: () =>
+          fetch("https://fradel-and-spies-server.vercel.app/home-foods"),
       },
       {
         path: "/login",
@@ -34,45 +36,71 @@ const router = createBrowserRouter([
       },
       {
         path: "/add-food",
-        element: <AddFood></AddFood>,
+        element: (
+          <PrivateRout>
+            <AddFood></AddFood>
+          </PrivateRout>
+        ),
       },
       {
         path: "/foods",
         element: <AllFoods></AllFoods>,
-        loader: () => fetch("http://localhost:5000/foods"),
+        loader: () => fetch("https://fradel-and-spies-server.vercel.app/foods"),
       },
       {
         path: "/foods/details/:id",
         element: <SingleFood></SingleFood>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/foods/details/${params.id}`),
+          fetch(
+            `https://fradel-and-spies-server.vercel.app/foods/details/${params.id}`
+          ),
       },
       {
         path: "/foods/details/purchase/:id",
-        element: <FoodPurchase></FoodPurchase>,
+        element: (
+          <PrivateRout>
+            <FoodPurchase></FoodPurchase>
+          </PrivateRout>
+        ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/foods/details/purchase/${params.id}`),
+          fetch(
+            `https://fradel-and-spies-server.vercel.app/foods/details/purchase/${params.id}`
+          ),
       },
       {
         path: "/my-foods",
-        element: <MyAddedFoods></MyAddedFoods>,
+        element: (
+          <PrivateRout>
+            <MyAddedFoods></MyAddedFoods>
+          </PrivateRout>
+        ),
       },
       {
         path: "/my-foods/update/:id",
-        element: <UpdateMyFoods></UpdateMyFoods>,
+        element: (
+          <PrivateRout>
+            <UpdateMyFoods></UpdateMyFoods>
+          </PrivateRout>
+        ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/my-foods/update/${params.id}`),
+          fetch(
+            `https://fradel-and-spies-server.vercel.app/my-foods/update/${params.id}`
+          ),
       },
       {
         path: "/my-orders",
-        element: <MyOrders></MyOrders>,
+        element: (
+          <PrivateRout>
+            <MyOrders></MyOrders>
+          </PrivateRout>
+        ),
       },
       {
         path: "/gallery",
-        element: <Gallery></Gallery>
-      }
+        element: <Gallery></Gallery>,
+      },
 
-      //http://localhost:5000/foods/details/purchase/67746a62f9cd0f3b095a8d36
+      //https://fradel-and-spies-server.vercel.app/foods/details/purchase/67746a62f9cd0f3b095a8d36
     ],
   },
 ]);

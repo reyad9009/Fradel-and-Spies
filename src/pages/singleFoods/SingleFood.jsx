@@ -20,7 +20,7 @@ const SingleFood = () => {
   const [purchaseData, setPurchaseData] = useState({ totalQuantity: 0 });
 
   useEffect(() => {
-    fetch(`http://localhost:5000/foods/purchase/${_id}`)
+    fetch(`https://fradel-and-spies-server.vercel.app/foods/purchase/${_id}`)
       .then((res) => res.json())
       .then((data) => setPurchaseData(data))
   }, [_id]); 

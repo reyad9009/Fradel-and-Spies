@@ -14,7 +14,7 @@ const AddFood = () => {
 
     //console.log(newFood);
 
-    fetch("http://localhost:5000/food", {
+    fetch("https://fradel-and-spies-server.vercel.app/food", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

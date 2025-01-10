@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { toast } from "react-toastify";
@@ -7,8 +7,10 @@ import { Helmet } from "react-helmet-async";
 import { AuthContext } from "../../provider/AuthProvider";
 
 
+
 const Register = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [showPassword, setShowPassword] = useState(false);
 
   const { createNewUser, setUser, updateUserProfile, signInWithGoogle } =
@@ -36,7 +38,7 @@ const Register = () => {
         setUser(user);
         updateUserProfile({ displayName: name, photoURL: photo })
           .then(() => {
-            navigate("/");
+            navigate(location?.state ? location.state : "/");
           })
           .catch((err) => {
             // console.log(err);
@@ -54,7 +56,7 @@ const Register = () => {
     signInWithGoogle()
       .then((result) => {
         // console.log(result.user);
-        navigate("/");
+        navigate(location?.state ? location.state : "/");
         toast.success("Registration successful");
       })
       .catch((error) => {

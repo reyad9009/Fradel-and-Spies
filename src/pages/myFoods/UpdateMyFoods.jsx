@@ -30,7 +30,7 @@ const UpdateMyFoods = () => {
   
       //console.log(updatedFood);
   
-      fetch(`http://localhost:5000/my-foods/update/${_id}`, {
+      fetch(`https://fradel-and-spies-server.vercel.app/my-foods/update/${_id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

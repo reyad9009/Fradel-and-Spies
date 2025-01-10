@@ -45,7 +45,6 @@ const Navbar = () => {
           Gallery
         </NavLink>
       </li>
-     
     </>
   );
   return (
@@ -76,10 +75,13 @@ const Navbar = () => {
             </label>
           </div>
 
-          <div className="flex-1 ">
-            <img className="lg:w-[70px] w-[50px] " src={logo} alt="" />
-            <p className="font-bold lg:text-3xl text-xl ml-3"> Fradel and Spies</p>
-          </div>
+            <div className="flex-1 ">
+              <img className="lg:w-[70px] w-[50px] " src={logo} alt="" />
+              <p className="font-bold lg:text-3xl text-xl ml-3">
+                {" "}
+                Fradel and Spies
+              </p>
+            </div>
 
           <div className="hidden flex-none lg:block w-[40%]">
             <ul className="flex flex-row gap-10">
@@ -112,7 +114,7 @@ const Navbar = () => {
                   </div>
                   <ul
                     tabIndex={0}
-                    className="menu menu-sm dropdown-content bg-primaryColor rounded-box z-[1] mt-3 w-52 p-3 shadow space-y-2"
+                    className="menu menu-sm dropdown-content bg-primaryColor rounded-box z-50 mt-3 w-52 p-3 shadow space-y-2"
                   >
                     <li>
                       <NavLink to={`/my-foods`} className="text-xl">

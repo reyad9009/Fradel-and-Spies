@@ -63,7 +63,9 @@ const AuthProvider = ({ children }) => {
       if (currentUser?.email) {
         const user = { email: currentUser.email };
         axios
-          .post("http://localhost:5000/jwt", user, { withCredentials: true })
+          .post("https://fradel-and-spies-server.vercel.app/jwt", user, {
+            withCredentials: true,
+          })
           .then((res) => {
             console.log("login token", res.data);
             setLoading(false);
@@ -71,7 +73,7 @@ const AuthProvider = ({ children }) => {
       } else {
         axios
           .post(
-            "http://localhost:5000/logout",
+            "https://fradel-and-spies-server.vercel.app/logout",
             {},
             {
               withCredentials: true,

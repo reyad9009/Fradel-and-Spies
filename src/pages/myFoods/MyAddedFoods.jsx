@@ -1,17 +1,27 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import MyAddedFoodsCard from "./MyAddedFoodsCard";
+import axios from "axios";
 
 const MyAddedFoods = () => {
   const [myFood, setMyFood] = useState([]);
   const { user } = useContext(AuthContext);
 
   useEffect(() => {
+    
+    // fetch(`https://fradel-and-spies-server.vercel.app/my-foods/${user?.email}`)
+    //   .then((res) => res.json())
+    //   .then((data) => setMyFood(data))
+    
     // Fetch data for the logged-in user's email
-    fetch(`http://localhost:5000/my-foods/${user?.email}`)
-      .then((res) => res.json())
-      .then((data) => setMyFood(data))
-      
+    axios
+      .get(
+        `https://fradel-and-spies-server.vercel.app/my-foods/${user?.email}`,
+        {
+          withCredentials: true,
+        }
+      )
+      .then((res) => setMyFood(res.data));
   }, [user?.email]);
   return (
     <div>

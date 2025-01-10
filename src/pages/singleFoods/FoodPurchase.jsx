@@ -73,7 +73,7 @@ const FoodPurchase = () => {
     //console.log(updatedQuantity);
 
     // First POST request to purchase the food
-    const purchaseRequest = fetch("http://localhost:5000/foods/purchase", {
+    const purchaseRequest = fetch("https://fradel-and-spies-server.vercel.app/foods/purchase", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -82,7 +82,7 @@ const FoodPurchase = () => {
     });
 
     // const UserPurchaseRequest = fetch(
-    //   "http://localhost:5000/food/Purchase/user",
+    //   "https://fradel-and-spies-server.vercel.app/food/Purchase/user",
     //   {
     //     method: "POST",
     //     headers: {
@@ -92,7 +92,7 @@ const FoodPurchase = () => {
     //   }
     // );
 
-    const updateRequest = fetch(`http://localhost:5000/food/${_id}`, {
+    const updateRequest = fetch(`https://fradel-and-spies-server.vercel.app/food/${_id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -279,7 +279,7 @@ export default FoodPurchase;
 //     image: image,
 //   };
 //   console.log(purchasedFood);
-//   fetch("http://localhost:5000/foods/purchase", {
+//   fetch("https://fradel-and-spies-server.vercel.app/foods/purchase", {
 //     method: "POST",
 //     headers: {
 //       "Content-Type": "application/json",
