@@ -29,7 +29,7 @@
 ## 4. Update & Delete Equipment
 - Users can edit and update the details of their added Foods
 
-## 5. All All Foods
+## 5. All Foods
 - All Foods show here by add Multiple users
 - Users can search foods by Foods name.
 

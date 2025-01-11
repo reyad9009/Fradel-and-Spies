@@ -189,7 +189,7 @@ const UpdateMyFoods = () => {
 
           <input
             type="submit"
-            value="Add Item"
+            value="Update"
             className="btn font-bold bg-primaryColor w-full"
           />
         </form>
