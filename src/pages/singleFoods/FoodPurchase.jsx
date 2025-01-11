@@ -131,10 +131,10 @@ const FoodPurchase = () => {
   };
 
   return (
-    <div className="md:w-[100%] h-auto">
+    <div className="md:w-[100%] flex flex-col justify-center items-center h-auto">
       <Slide>
         <h2 className="text-3xl text-center mb-16 font-bold">
-          Add your Food here
+          Purchase your food
         </h2>
       </Slide>
       <div className="mb-5 flex items-center">
@@ -146,13 +146,13 @@ const FoodPurchase = () => {
         </Link>
         <div>
           {quantity === 0 && (
-            <p className="text-red-500 font-bold ml-3">
+            <p className="text-red-500 font-bold ml-3 text-wrap lg:pr-0 pr-5">
               {user?.displayName || "User"}, you cannot buy this item because it
               is not available.
             </p>
           )}
           {user?.email === email && (
-            <p className="text-red-500 font-bold ml-3">
+            <p className="text-red-500 font-bold ml-3 text-wrap lg:pr-0 pr-5">
               {user?.displayName || "User"}, you cannot purchase your own food
               item.
             </p>
@@ -168,7 +168,7 @@ const FoodPurchase = () => {
         <div className="flex items-center justify-center w-[100%] ">
           <form
             onSubmit={FoodPurchase}
-            className="pl-6 w-full grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-y-10 gap-x-6 items-end"
+            className="lg:pl-6 w-full grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 lg:gap-y-10 gap-y-3 gap-x-6 items-end"
           >
             <div className="form-control">
               <label className="label">
@@ -260,62 +260,3 @@ const FoodPurchase = () => {
 };
 
 export default FoodPurchase;
-
-// const FoodPurchase = (e) => {
-//   e.preventDefault();
-//   if (quantity > defaultQuantity) {
-//     toast.warn(`You can buy only ${defaultQuantity}`);
-//     return;
-//   }
-//   if (quantity < 0) {
-//     toast.warn(`You can buy only ${defaultQuantity}`);
-//     return;
-//   }
-//   const formData = new FormData(e.target);
-//   const initialData = Object.fromEntries(formData.entries());
-//   const purchasedFood = {
-//     ...initialData,
-//     foodId: _id,
-//     image: image,
-//   };
-//   console.log(purchasedFood);
-//   fetch("https://fradel-and-spies-server.vercel.app/foods/purchase", {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//     body: JSON.stringify(purchasedFood),
-//   })
-//     .then((res) => res.json())
-//     .then((data) => {
-//       if (data.insertedId) {
-//         Swal.fire({
-//           title: "Success!",
-//           text: `${foodName} Purchase Successfully`,
-//           icon: "success",
-//           confirmButtonText: "Ok",
-//         });
-//         e.target.reset();
-//       }
-//     })
-//     .catch((error) => {
-//       console.error("Error:", error);
-//     });
-
-//     const updatedPriceData = {
-//       price: prices,
-//     };
-//     console.log(updatedPriceData);
-
-//   fetch(`food/${_id}`, {
-//     method: "PATCH",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//     body: JSON.stringify(updatedPriceData),
-//   })
-//     .then((res) => res.json())
-//     .then((data) => {
-//       console.log(data);
-//     });
-// };

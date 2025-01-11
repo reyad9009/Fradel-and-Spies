@@ -22,15 +22,14 @@ const SingleFood = () => {
   useEffect(() => {
     fetch(`https://fradel-and-spies-server.vercel.app/foods/purchase/${_id}`)
       .then((res) => res.json())
-      .then((data) => setPurchaseData(data))
-  }, [_id]); 
-  
-  return (
-    <div>
+      .then((data) => setPurchaseData(data));
+  }, [_id]);
 
-      <div className="mb-5">
+  return (
+    <div className="flex flex-col justify-center items-center">
+      <div className="mb-5 lg:-ml-[90%] -ml-[60%] gap-3 font-bold">
         <Link to="/foods">
-          <button className="btn flex items-center gap-3 font-bold">
+          <button className="btn gap-3 font-bold">
             <IoArrowBackOutline />
             Back
           </button>
@@ -60,16 +59,18 @@ const SingleFood = () => {
             </span>
 
             <p className="text-lg font-bold">
-              Total purchase: {purchaseData.totalQuantity > 0 ? purchaseData.totalQuantity : 0}
+              Total purchase:{" "}
+              {purchaseData.totalQuantity > 0 ? purchaseData.totalQuantity : 0}
             </p>
             <div>
               <Link to={`/foods/details/purchase/${_id}`}>
-                <button className={`btn bg-primaryColor mt-4 text-white text-lg`}>
+                <button
+                  className={`btn bg-primaryColor mt-4 text-white text-lg`}
+                >
                   Purchase
                 </button>
               </Link>
             </div>
-         
           </div>
         </div>
       </div>

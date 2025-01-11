@@ -16,7 +16,7 @@ const MyAddedFoodsCard = ({ myFood }) => {
   } = myFood;
   return (
     <div>
-      <div>
+      <div className="flex flex-col justify-center items-center">
         <div className="card card-compact lg:w-[25rem] lg:h-[10] w-[22rem] flex flex-col border">
           <figure className="">
             <img className="w-[100%]" src={image} />

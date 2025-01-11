@@ -1,5 +1,5 @@
 import React from "react";
-import homePageBg from '../../assets/homePageBg.svg';
+import homePageBg from '../../assets/homePageBg.png';
 import { Link } from "react-router-dom";
 const HomePageBanner = () => {
   return (

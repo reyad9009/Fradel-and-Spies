@@ -51,7 +51,7 @@ const MyOrdersCards = ({ myFoods, setMyFood, myFood }) => {
     });
   };
   return (
-    <div>
+    <div className="flex justify-center items-center">
       <div className="flex flex-col lg:flex-row lg:justify-stretch gap-8 p-5 border rounded-xl w-[22rem] lg:w-full">
         <figure>
           <img src={image} className="w-[800px] rounded-lg" />

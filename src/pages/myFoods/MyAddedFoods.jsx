@@ -25,7 +25,7 @@ const MyAddedFoods = () => {
   }, [user?.email]);
   return (
     <div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-10 gap-x-10 items-end">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-10 gap-x-10 items-end mt-10">
         {myFood.map((myFood) => (
           <MyAddedFoodsCard myFood={myFood} key={myFood._id}></MyAddedFoodsCard>
         ))}
