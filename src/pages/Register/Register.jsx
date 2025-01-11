@@ -129,6 +129,7 @@ const Register = () => {
               required
             />
             <button
+              type="button"
               onClick={() => setShowPassword(!showPassword)}
               className=" absolute ml-[19rem] mt-[3.2rem] p-2 bg-white"
             >

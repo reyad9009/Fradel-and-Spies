@@ -8,7 +8,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const Login = () => {
-  const { userLogin, setUser, signInWithGoogle } = useContext(AuthContext);
+  const { userLogin, setUser, signInWithGoogle, setLoading } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState({});
   const location = useLocation();
@@ -80,6 +80,7 @@ const Login = () => {
               required
             />
             <button
+              type="button"
               onClick={() => setShowPassword(!showPassword)}
               className=" absolute ml-[16rem] mt-[3.2rem] p-2 bg-white"
             >
@@ -99,7 +100,7 @@ const Login = () => {
             </label>
           </div>
           <div className="form-control">
-            <button className="btn bg-primaryColor text-white font-bold text-lg">
+            <button type='submit' className="btn bg-primaryColor text-white font-bold text-lg">
               Login
             </button>
           </div>
