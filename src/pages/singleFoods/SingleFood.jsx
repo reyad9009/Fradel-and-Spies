@@ -3,6 +3,12 @@ import { IoArrowBackOutline } from "react-icons/io5";
 import { Link, useLoaderData } from "react-router-dom";
 
 const SingleFood = () => {
+  const [isFullScreen, setIsFullScreen] = useState(false);
+
+  const toggleFullScreen = () => {
+    setIsFullScreen(!isFullScreen);
+  };
+
   const singleFood = useLoaderData();
   const {
     _id,
@@ -37,8 +43,27 @@ const SingleFood = () => {
       </div>
       <div className="flex flex-col lg:flex-row lg:justify-stretch gap-16 p-6 border rounded-xl w-[22rem] lg:w-full">
         <figure>
-          <img src={image} className="w-[800px] rounded-lg hover:scale-150 transition-all duration-300" />
-        </figure>
+        <img
+          src={image}
+          className="w-[800px] rounded-lg hover:scale-105 transition-all duration-300 cursor-pointer"
+          onClick={toggleFullScreen}
+          alt="Thumbnail"
+        />
+      </figure>
+
+      {/* Full-screen modal */}
+      {isFullScreen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90"
+          onClick={toggleFullScreen}
+        >
+          <img
+            src={image}
+            className="max-w-full max-h-full rounded-lg"
+            alt="Full screen"
+          />
+        </div>
+      )}
 
         <div className="flex items-center w-[100%]  justify-between">
           <div className="flex flex-col space-y-2">
