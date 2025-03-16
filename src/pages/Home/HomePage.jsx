@@ -27,7 +27,7 @@ const HomePage = () => {
       </div>
       <div className="flex justify-end mt-8">
         <Link to="/foods">
-          <button className="px-6 py-3 font-bold rounded-lg bg-primaryColor text-white text-base mt-2 mb-2">
+          <button className="px-6 py-3 font-bold rounded-full bg-primaryColor hover:text-primaryColor hover:bg-transparent hover:border-primaryColor hover:shadow-lg transition-all duration-300 text-white text-base mt-2 mb-2">
             See All Foods
           </button>
         </Link>

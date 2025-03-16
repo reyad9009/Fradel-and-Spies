@@ -37,7 +37,7 @@ const SingleFood = () => {
       </div>
       <div className="flex flex-col lg:flex-row lg:justify-stretch gap-16 p-6 border rounded-xl w-[22rem] lg:w-full">
         <figure>
-          <img src={image} className="w-[800px] rounded-lg" />
+          <img src={image} className="w-[800px] rounded-lg hover:scale-150 transition-all duration-300" />
         </figure>
 
         <div className="flex items-center w-[100%]  justify-between">
