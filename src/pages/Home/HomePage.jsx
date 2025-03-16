@@ -9,7 +9,7 @@ const HomePage = () => {
   const homeFood = useLoaderData();
 
   return (
-    <div className="mt-12 flex flex-col justify-center items-center">
+    <div className="mt-12 flex flex-col justify-center items-center overflow-hidden">
       <HomePageBanner></HomePageBanner>
       <Mission></Mission>
       <div>
