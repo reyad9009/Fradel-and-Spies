@@ -18,7 +18,7 @@ const HomePageFoodsCards = ({ foods }) => {
   return (
     <div>
       <div>
-        <div className="card card-compact lg:w-[25rem] lg:h-[10] w-[22rem] flex flex-col border">
+        <div className="shadow-lg card card-compact lg:w-[25rem] lg:h-[10] w-[22rem] flex flex-col border">
           <figure className="">
             <img className="w-[100%]" src={image} />
           </figure>
@@ -34,7 +34,7 @@ const HomePageFoodsCards = ({ foods }) => {
             </span>
             <div className="card-actions justify-start">
               <Link to={`/foods/details/${_id}`}>
-                <button className="px-6 py-3 font-bold rounded-full bg-primaryColor text-white text-base mt-2 mb-2">
+                <button className="px-6 py-3 font-bold rounded-full bg-primaryColor hover:text-primaryColor hover:bg-transparent hover:border-primaryColor hover:shadow-lg transition-all duration-300 text-white text-base mt-2 mb-2">
                   View Details
                 </button>
               </Link>
@@ -42,7 +42,6 @@ const HomePageFoodsCards = ({ foods }) => {
           </div>
         </div>
       </div>
-     
     </div>
   );
 };
