@@ -1,13 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const Theme = () => {
-  const [theme, setTheme] = useState("light");
+  // Load theme from localStorage or default to "light"
+  const storedTheme = localStorage.getItem("theme") || "light";
+  const [theme, setTheme] = useState(storedTheme);
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]); // Runs when `theme` changes
 
   const toggleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
-    document.documentElement.setAttribute("data-theme", newTheme);
   };
+
   return (
     <div>
       <label className="grid cursor-pointer place-items-center">
@@ -15,7 +22,6 @@ const Theme = () => {
           onChange={toggleTheme}
           checked={theme === "dark"}
           type="checkbox"
-          value="synthwave"
           className="toggle theme-controller bg-base-content col-span-2 col-start-1 row-start-1"
         />
         <svg
