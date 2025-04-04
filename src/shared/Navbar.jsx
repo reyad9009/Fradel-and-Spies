@@ -49,9 +49,9 @@ const Navbar = () => {
   );
   return (
     <nav className="flex items-center justify-center sticky top-0 z-50 shadow-md bg-white dark:bg-[#1d232a] dark:text-white">
-      <div className="w-[70%] drawer text-black">
-        <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content flex flex-col">
+      <div className="lg:w-[70%] drawer text-black">
+        <input id="my-drawer-3" type="checkbox" className="drawer-toggle " />
+        <div className="drawer-content flex flex-col dark:text-white">
           {/* Navbar */}
           <div className="navbar w-full">
             <div className="flex-none lg:hidden">
@@ -118,18 +118,27 @@ const Navbar = () => {
                       className="menu menu-sm dropdown-content bg-primary rounded-box z-50 mt-3 w-52 p-3 shadow space-y-2"
                     >
                       <li>
-                        <NavLink to={`/my-foods`} className="text-xl hover:bg-black hover:text-white">
+                        <NavLink
+                          to={`/my-foods`}
+                          className="text-xl hover:bg-black hover:text-white"
+                        >
                           My Food
                         </NavLink>
                       </li>
                       <li>
-                        <NavLink to="/add-food" className="text-xl hover:bg-black hover:text-white">
+                        <NavLink
+                          to="/add-food"
+                          className="text-xl hover:bg-black hover:text-white"
+                        >
                           Add Food
                         </NavLink>
                       </li>
 
                       <li>
-                        <NavLink to="/my-orders" className="text-xl hover:bg-black hover:text-white">
+                        <NavLink
+                          to="/my-orders"
+                          className="text-xl hover:bg-black hover:text-white"
+                        >
                           My Orders
                         </NavLink>
                       </li>
@@ -165,9 +174,9 @@ const Navbar = () => {
           <label
             htmlFor="my-drawer-3"
             aria-label="close sidebar"
-            className="drawer-overlay"
+            className="drawer-overlay "
           ></label>
-          <ul className="menu bg-base-200 min-h-full w-60 p-4 rounded-r-xl">
+          <ul className="menu bg-white dark:bg-[#1d232a] min-h-full w-60 p-4 rounded-r-xl text-black dark:text-white">
             {/* Sidebar content here */}
             <div className="flex pb-3">
               <Theme></Theme>
