@@ -32,7 +32,7 @@ const SingleFood = () => {
   }, [_id]);
 
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="flex flex-col justify-center items-center lg:pt-12 lg:mb-28">
       <div className="mb-5 lg:-ml-[90%] -ml-[60%] gap-3 font-bold">
         <Link to="/foods">
           <button className="btn gap-3 font-bold">
@@ -41,7 +41,7 @@ const SingleFood = () => {
           </button>
         </Link>
       </div>
-      <div className="flex flex-col lg:flex-row lg:justify-stretch gap-16 p-6 border rounded-xl w-[22rem] lg:w-full">
+      <div className="flex flex-col lg:flex-row lg:justify-stretch gap-16 p-6 border dark:border-none rounded-xl w-[22rem] lg:w-full">
         <figure>
         <img
           src={image}
@@ -90,7 +90,7 @@ const SingleFood = () => {
             <div>
               <Link to={`/foods/details/purchase/${_id}`}>
                 <button
-                  className={`btn bg-primary mt-4 text-white text-lg`}
+                  className={`btn bg-primary mt-4 text-white text-lg dark:border-none`}
                 >
                   Purchase
                 </button>

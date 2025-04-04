@@ -52,7 +52,7 @@ const MyOrdersCards = ({ myFoods, setMyFood, myFood }) => {
   };
   return (
     <div className="flex justify-center items-center">
-      <div className="flex flex-col lg:flex-row lg:justify-stretch gap-8 p-5 border rounded-xl w-[22rem] lg:w-full">
+      <div className="flex flex-col lg:flex-row lg:justify-stretch gap-8 p-5 border dark:border-none dark:shadow-lg dark:shadow-[#000000] rounded-xl w-[22rem] lg:w-full">
         <figure>
           <img src={image} className="w-[800px] rounded-lg" />
         </figure>
@@ -71,7 +71,7 @@ const MyOrdersCards = ({ myFoods, setMyFood, myFood }) => {
               <Link>
                 <button
                   onClick={() => handelDeleteMyOrder(_id)}
-                  className={`btn bg-primary mt-4 text-white text-lg`}
+                  className={`btn bg-primary mt-4 text-white text-lg dark:border-none`}
                 >
                   Delete
                 </button>

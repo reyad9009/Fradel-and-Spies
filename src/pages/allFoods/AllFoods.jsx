@@ -24,7 +24,7 @@ const AllFoods = () => {
           <div className="relative">
             <figure className="flex justify-center items-center">
               <img src={allFoodBg} alt="" />
-              <h1 className="absolute lg:text-6xl lg:top-[5rem] lg:left-[32rem] font-bold top-5">
+              <h1 className="dark:text-black absolute lg:text-6xl lg:top-[5rem] lg:left-[32rem] font-bold top-5">
                 All Foods
               </h1>
             </figure>
@@ -37,7 +37,7 @@ const AllFoods = () => {
             <input
               type="text"
               placeholder="Search foods by name..."
-              className="input input-bordered lg:w-1/2 text-lg p-4 focus:outline-[#fb5402] focus:border-transparent"
+              className="dark:text-black input input-bordered lg:w-1/2 text-lg p-4 focus:outline-[#fb5402] focus:border-transparent"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />

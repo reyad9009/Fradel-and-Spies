@@ -54,7 +54,7 @@ const UpdateMyFoods = () => {
     };
 
   return (
-    <div className="md:w-[100%] h-auto">
+    <div className="md:w-[100%] h-auto mt-12">
       <Slide>
         <h2 className="text-3xl text-center mb-16 font-bold">
           Update your Food here
@@ -69,10 +69,10 @@ const UpdateMyFoods = () => {
         </Link>
       </div>
       <div className="px-12 pt-10 pb-20 rounded-xl shadow-md">
-        <form onSubmit={handleAddFood} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-y-10 gap-x-10 items-end">
+        <form onSubmit={handleAddFood} className="dark:text-black grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-y-10 gap-x-10 items-end">
           <div className="form-control">
             <label className="label">
-              <span className="label-text font-bold">Item Name</span>
+              <span className="label-text font-bold dark:text-white">Item Name</span>
             </label>
             <input
               type="text"
@@ -85,7 +85,7 @@ const UpdateMyFoods = () => {
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text font-bold">Food Image URL</span>
+              <span className="label-text font-bold dark:text-white">Food Image URL</span>
             </label>
             <input
               type="url"
@@ -99,7 +99,7 @@ const UpdateMyFoods = () => {
 
           <div className="form-control">
             <label className="label">
-              <span className="label-text font-bold">Food Category Name</span>
+              <span className="label-text font-bold dark:text-white">Food Category Name</span>
             </label>
             <input
               type="text"
@@ -112,7 +112,7 @@ const UpdateMyFoods = () => {
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text font-bold">Quantity</span>
+              <span className="label-text font-bold dark:text-white">Quantity</span>
             </label>
             <input
               type="text"
@@ -124,7 +124,7 @@ const UpdateMyFoods = () => {
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text font-bold">Price</span>
+              <span className="label-text font-bold dark:text-white">Price</span>
             </label>
             <input
               type="text"
@@ -137,8 +137,8 @@ const UpdateMyFoods = () => {
           </div>
 
           <div className="form-control">
-            <label className="label">
-              <span className="label-text font-bold">Food Origin</span>
+            <label className="label"> 
+              <span className="label-text font-bold dark:text-white">Food Origin</span>
             </label>
             <input
               type="text"
@@ -151,7 +151,7 @@ const UpdateMyFoods = () => {
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text font-bold">Description</span>
+              <span className="label-text font-bold dark:text-white">Description</span>
             </label>
             <textarea
               name="description"
@@ -163,7 +163,7 @@ const UpdateMyFoods = () => {
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text font-bold">User Email</span>
+              <span className="label-text font-bold dark:text-white">User Email</span>
             </label>
             <input
               type="email"
@@ -176,7 +176,7 @@ const UpdateMyFoods = () => {
 
           <div className="form-control">
             <label className="label">
-              <span className="label-text font-bold">User Name</span>
+              <span className="label-text font-bold dark:text-white">User Name</span>
             </label>
             <input
               type="text"
@@ -190,7 +190,7 @@ const UpdateMyFoods = () => {
           <input
             type="submit"
             value="Update"
-            className="btn font-bold bg-primary w-full"
+            className="btn font-bold bg-primary w-full dark:border-none dark:text-white"
           />
         </form>
       </div>

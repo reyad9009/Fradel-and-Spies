@@ -17,7 +17,7 @@ const AllFoodsDetails = ({ allFoods }) => {
   return (
     <div>
       <div>
-        <div className="hover:scale-90 transition-all duration-300 card card-compact lg:w-[25rem] lg:h-[10] w-[22rem] flex flex-col border">
+        <div className="dark:border-none dark:shadow-[#000000] shadow-lg hover:scale-90 transition-all duration-300 card card-compact lg:w-[25rem] lg:h-[10] w-[22rem] flex flex-col border">
           <figure className="">
             <img className="w-[100%]" src={image} />
           </figure>

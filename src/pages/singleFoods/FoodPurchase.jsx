@@ -131,14 +131,14 @@ const FoodPurchase = () => {
   };
 
   return (
-    <div className="md:w-[100%] flex flex-col justify-center items-center h-auto">
+    <div className="md:w-[100%] flex flex-col justify-center items-center h-auto pt-12">
       <Slide>
         <h2 className="text-3xl text-center mb-16 font-bold">
           Purchase your food
         </h2>
       </Slide>
       <div className="mb-5 flex items-center">
-        <Link to={`/foods/details/${_id}`}>
+        <Link to={`/foods`}>
           <button className="btn flex items-center gap-3 font-bold">
             <IoArrowBackOutline />
             Back
@@ -160,7 +160,7 @@ const FoodPurchase = () => {
         </div>
       </div>
 
-      <div className="flex flex-col lg:flex-row p-6 border rounded-xl w-[22rem] lg:w-full">
+      <div className="flex flex-col lg:flex-row p-6 border dark:border-none rounded-xl w-[22rem] lg:w-full">
         <figure>
           <img src={image} className="w-[70rem]" alt="" />
         </figure>
@@ -168,11 +168,11 @@ const FoodPurchase = () => {
         <div className="flex items-center justify-center w-[100%] ">
           <form
             onSubmit={FoodPurchase}
-            className="lg:pl-6 w-full grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 lg:gap-y-10 gap-y-3 gap-x-6 items-end"
+            className="dark:text-black lg:pl-6 w-full grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 lg:gap-y-10 gap-y-3 gap-x-6 items-end"
           >
             <div className="form-control">
               <label className="label">
-                <span className="label-text font-bold">Food Name</span>
+                <span className="label-text font-bold dark:text-white">Food Name</span>
               </label>
               <input
                 type="text"
@@ -186,7 +186,7 @@ const FoodPurchase = () => {
 
             <div className="form-control">
               <label className="label">
-                <span className="label-text font-bold">Price</span>
+                <span className="label-text font-bold dark:text-white">Price</span>
               </label>
               <input
                 type="text"
@@ -199,7 +199,7 @@ const FoodPurchase = () => {
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text font-bold">Quantity</span>
+                <span className="label-text font-bold dark:text-white">Quantity</span>
               </label>
               <input
                 type="number"
@@ -213,7 +213,7 @@ const FoodPurchase = () => {
 
             <div className="form-control">
               <label className="label">
-                <span className="label-text font-bold">Buyer Name</span>
+                <span className="label-text font-bold dark:text-white">Buyer Name</span>
               </label>
               <input
                 type="text"
@@ -225,7 +225,7 @@ const FoodPurchase = () => {
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text font-bold">Buyer Email</span>
+                <span className="label-text font-bold dark:text-white">Buyer Email</span>
               </label>
               <input
                 type="email"
@@ -237,7 +237,7 @@ const FoodPurchase = () => {
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text font-bold">Purchase Date</span>
+                <span className="label-text font-bold dark:text-white">Purchase Date</span>
               </label>
               <input
                 name="date"

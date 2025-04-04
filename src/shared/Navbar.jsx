@@ -118,18 +118,18 @@ const Navbar = () => {
                       className="menu menu-sm dropdown-content bg-primary rounded-box z-50 mt-3 w-52 p-3 shadow space-y-2"
                     >
                       <li>
-                        <NavLink to={`/my-foods`} className="text-xl">
+                        <NavLink to={`/my-foods`} className="text-xl hover:bg-black hover:text-white">
                           My Food
                         </NavLink>
                       </li>
                       <li>
-                        <NavLink to="/add-food" className="text-xl">
+                        <NavLink to="/add-food" className="text-xl hover:bg-black hover:text-white">
                           Add Food
                         </NavLink>
                       </li>
 
                       <li>
-                        <NavLink to="/my-orders" className="text-xl">
+                        <NavLink to="/my-orders" className="text-xl hover:bg-black hover:text-white">
                           My Orders
                         </NavLink>
                       </li>
