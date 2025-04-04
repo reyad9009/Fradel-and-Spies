@@ -18,14 +18,17 @@ const MainLayout = () => {
   //   return () => clearTimeout(timer);
   // }, []);
   return (
-    <div className="max-w-7xl mx-auto">
-       <Navbar></Navbar>
+    <div>
+      <Navbar></Navbar>
       {/*{showLoading || loading ? (
         <Loading /> // Show the loading component when data is loading
       ) : (
         <> */}
-          <Outlet></Outlet>
-        {/* </>
+      <div className="max-w-7xl mx-auto"> 
+        <Outlet></Outlet>
+      </div>
+
+      {/* </>
       )} */}
       <Footer></Footer>
     </div>

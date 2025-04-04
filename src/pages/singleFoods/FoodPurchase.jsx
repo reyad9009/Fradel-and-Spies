@@ -249,7 +249,7 @@ const FoodPurchase = () => {
             <input
               type="submit"
               value="Purchase"
-              className="btn text-white font-bold bg-primaryColor w-full"
+              className="btn text-white font-bold bg-primary w-full"
               disabled={defaultQuantity <= 0 || user?.email === email}
             />
           </form>

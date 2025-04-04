@@ -90,7 +90,7 @@ const SingleFood = () => {
             <div>
               <Link to={`/foods/details/purchase/${_id}`}>
                 <button
-                  className={`btn bg-primaryColor mt-4 text-white text-lg`}
+                  className={`btn bg-primary mt-4 text-white text-lg`}
                 >
                   Purchase
                 </button>

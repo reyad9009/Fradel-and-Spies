@@ -190,7 +190,7 @@ const UpdateMyFoods = () => {
           <input
             type="submit"
             value="Update"
-            className="btn font-bold bg-primaryColor w-full"
+            className="btn font-bold bg-primary w-full"
           />
         </form>
       </div>

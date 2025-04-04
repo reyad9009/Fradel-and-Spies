@@ -9,7 +9,7 @@ const Mission = () => {
   return (
     <div className="flex flex-col justify-center items-center my-32 w-full">
       <h1 className="text-4xl font-bold mb-4">Our Mission</h1>
-      <p className="text-center text-gray-600 max-w-2xl mb-10">
+      <p className="text-center max-w-2xl mb-10">
         At the heart of our mission is a commitment to bringing people together
         through exceptional food, sustainability, and innovation. We strive to
         create memorable dining experiences while supporting local communities

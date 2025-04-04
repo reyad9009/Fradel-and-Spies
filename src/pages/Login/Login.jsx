@@ -100,7 +100,7 @@ const Login = () => {
             </label>
           </div>
           <div className="form-control">
-            <button type='submit' className="btn bg-primaryColor text-white font-bold text-lg">
+            <button type='submit' className="btn bg-primary text-white font-bold text-lg">
               Login
             </button>
           </div>

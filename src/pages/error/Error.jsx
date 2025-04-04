@@ -8,7 +8,7 @@ const Error = () => {
             <img src={error} alt="" />
             <h1 className='text-2xl font-bold'>The page you are looking for doesn't exist</h1>
             <Link to='/'>
-                <button className='bg-primaryColor px-10 py-3 rounded-xl mt-6 text-white'>Go to Home Page</button>
+                <button className='bg-primary px-10 py-3 rounded-xl mt-6 text-white'>Go to Home Page</button>
             </Link>
         </div>
     );

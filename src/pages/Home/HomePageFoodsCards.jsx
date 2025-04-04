@@ -34,7 +34,7 @@ const HomePageFoodsCards = ({ foods }) => {
             </span>
             <div className="card-actions justify-start">
               <Link to={`/foods/details/${_id}`}>
-                <button className="px-6 py-3 font-bold rounded-full bg-primaryColor hover:text-primaryColor hover:bg-transparent hover:border-primaryColor hover:shadow-lg transition-all duration-300 text-white text-base mt-2 mb-2">
+                <button className="px-6 py-3 font-bold rounded-full bg-primary hover:text-primaryColor hover:bg-transparent hover:border-primaryColor hover:shadow-lg transition-all duration-300 text-white text-base mt-2 mb-2">
                   View Details
                 </button>
               </Link>
