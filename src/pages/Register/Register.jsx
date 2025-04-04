@@ -64,24 +64,24 @@ const Register = () => {
       });
   };
   return (
-    <div className="min-h-scree flex justify-center">
+    <div className="min-h-scree flex justify-center mt-12">
       <Helmet>
         <title>Career Kindle | Register </title>
       </Helmet>
-      <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-        <h2 className="text-3xl mb-10 font-extrabold text-center ">
+      <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl dark:bg-black">
+        <h2 className="text-3xl mb-10 font-extrabold text-center dark:text-primary pt-5">
           Register your account
         </h2>
-        <form onSubmit={handleSubmit} className=" px-5">
+        <form onSubmit={handleSubmit} className=" px-5 dark:bg-black">
           <div className="form-control">
             <label className="label">
-              <span className="label-text font-bold text-lg">Name</span>
+              <span className="label-text font-bold text-lg dark:text-white">Name</span>
             </label>
             <input
               type="text"
               name="name"
               placeholder="enter your name"
-              className="input input-bordered"
+              className="input input-bordered dark:text-black"
               required
             />
           </div>
@@ -92,40 +92,40 @@ const Register = () => {
 
           <div className="form-control">
             <label className="label">
-              <span className="label-text font-bold text-lg">Photo URL</span>
+              <span className="label-text font-bold text-lg dark:text-white">Photo URL</span>
             </label>
             <input
               type="text"
               name="photo"
               placeholder="photo url"
-              className="input input-bordered"
+              className="input input-bordered dark:text-black"
               required
             />
           </div>
 
           <div className="form-control">
             <label className="label">
-              <span className="label-text font-bold text-lg">Email</span>
+              <span className="label-text font-bold text-lg dark:text-white">Email</span>
             </label>
             <input
               type="email"
               name="email"
               placeholder="email"
-              className="input input-bordered"
+              className="input input-bordered dark:text-black"
               required
             />
           </div>
 
           <div className="form-control">
             <label className="label">
-              <span className="label-text font-bold text-lg">Password</span>
+              <span className="label-text font-bold text-lg dark:text-white">Password</span>
             </label>
 
             <input
               type={showPassword ? "text" : "password"}
               name="password"
               placeholder="password"
-              className="input  input-bordered relative"
+              className="input  input-bordered relative dark:text-black"
               required
             />
             <button
@@ -134,16 +134,16 @@ const Register = () => {
               className=" absolute ml-[19rem] mt-[3.2rem] p-2 bg-white"
             >
               {showPassword ? (
-                <FaEyeSlash className="text-lg"></FaEyeSlash>
+                <FaEyeSlash className="text-lg dark:text-black" ></FaEyeSlash>
               ) : (
-                <FaEye className="text-lg"></FaEye>
+                <FaEye className="text-lg dark:text-black"></FaEye>
               )}
             </button>
           </div>
 
           <div className="flex w-full flex-col mt-5">
             <div className="card bg-base-300 rounded-box grid place-items-center">
-              <button className="btn w-full bg-primary text-white font-bold text-xl">
+              <button className="btn w-full bg-primary text-white font-bold text-xl dark:border-none">
                 Register
               </button>
             </div>

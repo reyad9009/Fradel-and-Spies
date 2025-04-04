@@ -48,7 +48,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <nav className=" flex items-center justify-center sticky top-0 z-50 shadow-md bg-white dark:bg-[#1d232a] dark:text-white">
+    <nav className="flex items-center justify-center sticky top-0 z-50 shadow-md bg-white dark:bg-[#1d232a] dark:text-white">
       <div className="w-[70%] drawer text-black">
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col">

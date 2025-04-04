@@ -47,36 +47,36 @@ const Login = () => {
   };
 
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center mt-16">
       <Helmet>
         <title>Career Kindle | Login</title>
       </Helmet>
-      <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-        <h2 className="text-3xl font-extrabold text-center mb-10">
+      <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl dark:text-white dark:bg-black">
+        <h2 className="text-2xl font-bold text-center pt-5 mb-10 dark:text-primary">
           Login your account
         </h2>
         <form onSubmit={handleSubmit} className="px-10">
           <div className="form-control">
             <label className="label">
-              <span className="label-text text-lg font-semibold">Email</span>
+              <span className="label-text text-lg font-semibold dark:text-white">Email</span>
             </label>
             <input
               type="email"
               name="email"
               placeholder="email"
-              className="input input-bordered"
+              className="input input-bordere dark:text-black"
               required
             />
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text text-lg font-semibold">Password</span>
+              <span className="label-text text-lg font-semibold dark:text-white">Password</span>
             </label>
             <input
               type={showPassword ? "text" : "password"}
               name="password"
               placeholder="password"
-              className="input input-bordered"
+              className="input input-bordered dark:text-black"
               required
             />
             <button
@@ -85,22 +85,22 @@ const Login = () => {
               className=" absolute ml-[16rem] mt-[3.2rem] p-2 bg-white"
             >
               {showPassword ? (
-                <FaEyeSlash className="text-lg"></FaEyeSlash>
+                <FaEyeSlash className="text-lg dark:text-black"></FaEyeSlash>
               ) : (
-                <FaEye className="text-lg"></FaEye>
+                <FaEye className="text-lg dark:text-black"></FaEye>
               )}
             </button>
 
             {/* {error.login && <label className="label">{error.login}</label>} */}
 
             <label className="label">
-              <a className="label-text-alt link link-hover text-base mt-2">
+              <a className="label-text-alt link link-hover text-base mt-2 dark:text-white">
                 Forgot password?
               </a>
             </label>
           </div>
           <div className="form-control">
-            <button type='submit' className="btn bg-primary text-white font-bold text-lg">
+            <button type='submit' className="btn dark:border-none bg-primary text-white font-bold text-lg">
               Login
             </button>
           </div>
